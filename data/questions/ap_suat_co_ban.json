@@ -1,0 +1,42 @@
+[
+  {
+    "text": "Áp suất phụ thuộc vào những yếu tố nào?",
+    "answers": [
+      "Áp lực và diện tích bị ép",
+      "Màu sắc và hình dạng vật",
+      "Nhiệt độ và ánh sáng",
+      "Thời gian và vận tốc"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Đơn vị của áp suất là gì?",
+    "answers": ["Niutơn", "Paxcan", "Mét", "Jun"],
+    "correct": 1
+  },
+  {
+    "text": "Muốn tăng áp suất, ta có thể làm gì?",
+    "answers": [
+      "Giảm áp lực",
+      "Tăng diện tích bị ép",
+      "Tăng áp lực hoặc giảm diện tích bị ép",
+      "Giảm cả áp lực và diện tích bị ép"
+    ],
+    "correct": 2
+  },
+  {
+    "text": "Áp suất chất lỏng tăng khi nào?",
+    "answers": [
+      "Khi độ sâu tăng",
+      "Khi độ sâu giảm",
+      "Khi vật nhẹ hơn",
+      "Khi ánh sáng mạnh hơn"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Công thức tính áp suất là gì?",
+    "answers": ["p = F / S", "v = s / t", "P = 10m", "A = F.s"],
+    "correct": 0
+  }
+]
