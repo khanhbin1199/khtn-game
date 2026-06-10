@@ -1,32 +1,22 @@
 [
-  {
-    "text": "Dòng điện là gì?",
-    "answers": [
-      "Dòng chuyển dời có hướng của các điện tích",
-      "Dòng nước chảy trong ống",
-      "Sự truyền nhiệt qua dây dẫn",
-      "Ánh sáng phát ra từ bóng đèn"
-    ],
-    "correct": 0
-  },
-  {
-    "text": "Đơn vị của hiệu điện thế là gì?",
-    "answers": ["Ampe", "Vôn", "Oát", "Niutơn"],
-    "correct": 1
-  },
-  {
-    "text": "Dụng cụ nào dùng để đo cường độ dòng điện?",
-    "answers": ["Vôn kế", "Ampe kế", "Nhiệt kế", "Lực kế"],
-    "correct": 1
-  },
-  {
-    "text": "Vật nào dưới đây dẫn điện tốt?",
-    "answers": ["Cao su", "Nhựa", "Đồng", "Gỗ khô"],
-    "correct": 2
-  },
-  {
-    "text": "Kí hiệu của đơn vị điện trở là gì?",
-    "answers": ["A", "V", "Ω", "W"],
-    "correct": 2
-  }
+  {"text":"Dòng điện là gì?","answers":["Dòng chuyển dời có hướng của các điện tích","Dòng nước chảy trong ống","Sự truyền nhiệt trong vật","Ánh sáng phát ra từ đèn"],"correct":0},
+  {"text":"Dòng điện trong kim loại là dòng chuyển dời có hướng của hạt nào?","answers":["Electron tự do","Proton","Nguyên tử trung hòa","Phân tử nước"],"correct":0},
+  {"text":"Muốn có dòng điện chạy qua một bóng đèn cần điều kiện nào?","answers":["Có nguồn điện và mạch kín","Chỉ cần dây dẫn","Chỉ cần bóng đèn","Chỉ cần công tắc mở"],"correct":0},
+  {"text":"Nguồn điện có tác dụng gì?","answers":["Cung cấp năng lượng để tạo và duy trì dòng điện","Làm dây dẫn biến mất","Làm giảm điện tích","Ngăn dòng điện chạy"],"correct":0},
+  {"text":"Thiết bị nào là nguồn điện?","answers":["Pin","Bóng đèn","Công tắc","Dây dẫn"],"correct":0},
+  {"text":"Mạch điện kín là mạch như thế nào?","answers":["Có đường dẫn liên tục cho dòng điện chạy qua","Bị đứt ở một điểm","Không có nguồn điện","Không có dây dẫn"],"correct":0},
+  {"text":"Khi công tắc mở, dòng điện trong mạch thường thế nào?","answers":["Không chạy qua mạch","Chạy mạnh hơn","Tăng gấp đôi","Không thay đổi"],"correct":0},
+  {"text":"Khi công tắc đóng trong mạch kín, bóng đèn thường thế nào?","answers":["Sáng","Tắt","Vỡ ngay","Không có hiện tượng"],"correct":0},
+  {"text":"Chiều dòng điện quy ước là chiều nào?","answers":["Từ cực dương qua mạch ngoài về cực âm của nguồn","Từ cực âm qua mạch ngoài về cực dương","Từ dưới lên trên","Không có chiều"],"correct":0},
+  {"text":"Dòng điện có thể gây ra tác dụng nào?","answers":["Tác dụng nhiệt, phát sáng, từ, hóa học, sinh lí","Chỉ làm vật nặng hơn","Chỉ làm vật nhẹ hơn","Không gây tác dụng nào"],"correct":0},
+  {"text":"Bóng đèn sáng là biểu hiện của tác dụng nào của dòng điện?","answers":["Tác dụng phát sáng","Tác dụng hấp dẫn","Tác dụng đàn hồi","Tác dụng bay hơi"],"correct":0},
+  {"text":"Dòng điện làm dây tóc bóng đèn nóng lên là tác dụng nào?","answers":["Tác dụng nhiệt","Tác dụng từ","Tác dụng hóa học","Tác dụng sinh lí"],"correct":0},
+  {"text":"Nam châm điện hoạt động dựa trên tác dụng nào của dòng điện?","answers":["Tác dụng từ","Tác dụng nhiệt","Tác dụng phát sáng","Tác dụng sinh lí"],"correct":0},
+  {"text":"Dòng điện chạy qua cơ thể người có thể gây nguy hiểm do tác dụng nào?","answers":["Tác dụng sinh lí","Tác dụng phản xạ","Tác dụng khúc xạ","Tác dụng ma sát"],"correct":0},
+  {"text":"Vật nào sau đây thường cho dòng điện đi qua tốt?","answers":["Đồng","Nhựa","Cao su","Gỗ khô"],"correct":0},
+  {"text":"Vật nào sau đây thường không cho dòng điện đi qua?","answers":["Cao su","Đồng","Nhôm","Sắt"],"correct":0},
+  {"text":"Kí hiệu dòng điện trong sơ đồ mạch điện thường được biểu diễn bằng gì?","answers":["Mũi tên chỉ chiều dòng điện","Hình tròn màu đỏ","Đường cong bất kỳ","Dấu chấm than"],"correct":0},
+  {"text":"Nếu mạch điện bị hở thì bóng đèn trong mạch sẽ thế nào?","answers":["Không sáng","Sáng mạnh hơn","Sáng nhấp nháy mãi","Tự phát điện"],"correct":0},
+  {"text":"Trong mạch điện đơn giản, dây dẫn có nhiệm vụ gì?","answers":["Nối các bộ phận để dòng điện chạy qua","Tạo ra lực hấp dẫn","Làm giảm khối lượng bóng đèn","Cản hoàn toàn dòng điện"],"correct":0},
+  {"text":"Dòng điện không thể chạy trong trường hợp nào?","answers":["Mạch bị ngắt","Mạch kín có nguồn điện","Công tắc đóng","Có dây dẫn nối đúng"],"correct":0}
 ]
