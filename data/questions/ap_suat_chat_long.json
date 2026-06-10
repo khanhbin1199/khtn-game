@@ -1,42 +1,22 @@
 [
-  {
-    "text": "Áp suất phụ thuộc vào những yếu tố nào?",
-    "answers": [
-      "Áp lực và diện tích bị ép",
-      "Màu sắc và hình dạng vật",
-      "Nhiệt độ và ánh sáng",
-      "Thời gian và vận tốc"
-    ],
-    "correct": 0
-  },
-  {
-    "text": "Đơn vị của áp suất là gì?",
-    "answers": ["Niutơn", "Paxcan", "Mét", "Jun"],
-    "correct": 1
-  },
-  {
-    "text": "Muốn tăng áp suất, ta có thể làm gì?",
-    "answers": [
-      "Giảm áp lực",
-      "Tăng diện tích bị ép",
-      "Tăng áp lực hoặc giảm diện tích bị ép",
-      "Giảm cả áp lực và diện tích bị ép"
-    ],
-    "correct": 2
-  },
-  {
-    "text": "Áp suất chất lỏng tăng khi nào?",
-    "answers": [
-      "Khi độ sâu tăng",
-      "Khi độ sâu giảm",
-      "Khi vật nhẹ hơn",
-      "Khi ánh sáng mạnh hơn"
-    ],
-    "correct": 0
-  },
-  {
-    "text": "Công thức tính áp suất là gì?",
-    "answers": ["p = F / S", "v = s / t", "P = 10m", "A = F.s"],
-    "correct": 0
-  }
+  {"text":"Áp suất chất lỏng phụ thuộc vào yếu tố nào?","answers":["Độ sâu và trọng lượng riêng của chất lỏng","Màu sắc chất lỏng","Hình dạng đáy bình בלבד","Thể tích bình duy nhất"],"correct":0},
+  {"text":"Ở cùng một chất lỏng, càng xuống sâu thì áp suất chất lỏng thế nào?","answers":["Càng lớn","Càng nhỏ","Không đổi","Bằng 0"],"correct":0},
+  {"text":"Áp suất chất lỏng tác dụng theo hướng nào?","answers":["Theo mọi phương","Chỉ từ trên xuống","Chỉ từ dưới lên","Chỉ theo phương ngang"],"correct":0},
+  {"text":"Công thức áp suất chất lỏng thường viết là gì?","answers":["p = d.h","p = F/S","v = s/t","P = 10m"],"correct":0},
+  {"text":"Trong công thức p = d.h, h là gì?","answers":["Độ sâu tính từ mặt thoáng chất lỏng","Chiều cao của vật trên mặt đất","Diện tích đáy bình","Khối lượng chất lỏng"],"correct":0},
+  {"text":"Trong công thức p = d.h, d là gì?","answers":["Trọng lượng riêng của chất lỏng","Khối lượng của bình","Diện tích bị ép","Vận tốc dòng chảy"],"correct":0},
+  {"text":"Ở cùng một độ sâu, chất lỏng có trọng lượng riêng lớn hơn sẽ gây áp suất như thế nào?","answers":["Lớn hơn","Nhỏ hơn","Bằng 0","Không phụ thuộc"],"correct":0},
+  {"text":"Vì sao thợ lặn xuống càng sâu càng chịu áp suất lớn?","answers":["Vì độ sâu tăng làm áp suất chất lỏng tăng","Vì nước nhẹ hơn không khí","Vì nhiệt độ nước tăng mạnh","Vì ánh sáng yếu hơn"],"correct":0},
+  {"text":"Tại cùng một độ sâu trong cùng chất lỏng, áp suất tại các điểm khác nhau thế nào?","answers":["Bằng nhau","Luôn khác nhau","Điểm gần thành bình lớn hơn","Điểm giữa bình bằng 0"],"correct":0},
+  {"text":"Chất lỏng gây áp suất lên đâu?","answers":["Đáy bình, thành bình và vật ở trong lòng chất lỏng","Chỉ đáy bình","Chỉ mặt thoáng","Chỉ vật nổi trên mặt"],"correct":0},
+  {"text":"Vì sao đập nước thường xây dày hơn ở phía dưới?","answers":["Vì áp suất nước tăng theo độ sâu","Vì nước ở dưới nhẹ hơn","Vì dưới đáy không có áp suất","Vì phía dưới không tiếp xúc với nước"],"correct":0},
+  {"text":"Nếu độ sâu tăng gấp đôi trong cùng chất lỏng, áp suất chất lỏng sẽ thế nào?","answers":["Tăng gấp đôi","Giảm một nửa","Không đổi","Tăng bốn lần"],"correct":0},
+  {"text":"Áp suất chất lỏng có phụ thuộc vào hình dạng bình không, nếu xét cùng độ sâu và cùng chất lỏng?","answers":["Không phụ thuộc","Luôn phụ thuộc hoàn toàn","Chỉ phụ thuộc màu bình","Chỉ phụ thuộc thể tích bình"],"correct":0},
+  {"text":"Nước trong bình càng cao thì áp suất ở đáy bình thế nào?","answers":["Càng lớn","Càng nhỏ","Không đổi","Bằng áp suất khí quyển בלבד"],"correct":0},
+  {"text":"Khi một vật ở trong chất lỏng, nó chịu áp suất từ chất lỏng theo hướng nào?","answers":["Từ nhiều phía","Chỉ từ trên xuống","Chỉ từ dưới lên","Không chịu áp suất"],"correct":0},
+  {"text":"Ở cùng độ sâu, áp suất trong nước biển thường lớn hơn nước ngọt vì sao?","answers":["Nước biển có trọng lượng riêng lớn hơn","Nước biển có màu xanh","Nước ngọt không gây áp suất","Nước biển có sóng"],"correct":0},
+  {"text":"Điểm nào trong cùng một bình nước chịu áp suất lớn nhất?","answers":["Điểm sâu nhất","Điểm sát mặt thoáng","Điểm ở giữa theo phương ngang nhưng nông hơn","Mọi điểm đều bằng nhau dù khác độ sâu"],"correct":0},
+  {"text":"Áp suất do chất lỏng gây ra tại một điểm không phụ thuộc trực tiếp vào yếu tố nào?","answers":["Diện tích đáy bình","Độ sâu","Trọng lượng riêng chất lỏng","Loại chất lỏng"],"correct":0},
+  {"text":"Vì sao khi bơi xuống sâu tai có cảm giác ù hoặc đau?","answers":["Do áp suất nước tăng khi độ sâu tăng","Do nước không có trọng lượng","Do cơ thể không chịu lực","Do ánh sáng giảm"],"correct":0},
+  {"text":"Áp suất ở đáy bình chứa chất lỏng tăng khi nào?","answers":["Khi chiều cao cột chất lỏng tăng","Khi màu chất lỏng nhạt hơn","Khi bình đặt nghiêng nhưng độ sâu giảm","Khi giảm trọng lượng riêng chất lỏng"],"correct":0}
 ]
