@@ -1,56 +1,22 @@
 [
-  {
-    "text": "Lực là gì?",
-    "answers": [
-      "Tác dụng đẩy hoặc kéo",
-      "Khối lượng",
-      "Nhiệt độ",
-      "Thể tích"
-    ],
-    "correct": 0
-  },
-
-  {
-    "text": "Đơn vị của lực là gì?",
-    "answers": [
-      "Mét",
-      "Niutơn",
-      "Kilôgam",
-      "Giây"
-    ],
-    "correct": 1
-  },
-
-  {
-    "text": "Trọng lực có chiều như thế nào?",
-    "answers": [
-      "Từ dưới lên",
-      "Từ trái sang phải",
-      "Từ trên xuống",
-      "Không xác định"
-    ],
-    "correct": 2
-  },
-
-  {
-    "text": "Lực đàn hồi xuất hiện khi nào?",
-    "answers": [
-      "Khi vật bị biến dạng",
-      "Khi vật nóng lên",
-      "Khi vật tan chảy",
-      "Khi vật đổi màu"
-    ],
-    "correct": 0
-  },
-
-  {
-    "text": "Ma sát xuất hiện khi nào?",
-    "answers": [
-      "Khi các bề mặt tiếp xúc và cản trở chuyển động",
-      "Khi không có lực",
-      "Khi vật ở trong chân không",
-      "Khi vật không có khối lượng"
-    ],
-    "correct": 0
-  }
+  {"text":"Lực ma sát xuất hiện khi nào?","answers":["Khi hai bề mặt tiếp xúc nhau","Khi vật phát sáng","Khi có dòng điện","Khi vật đổi màu"],"correct":0},
+  {"text":"Lực ma sát có tác dụng gì?","answers":["Cản trở chuyển động","Làm vật nhẹ đi","Làm vật phát sáng","Làm vật biến mất"],"correct":0},
+  {"text":"Khi kéo một chiếc hộp trên sàn, lực nào cản trở chuyển động của hộp?","answers":["Lực ma sát","Trọng lực","Lực đàn hồi","Lực từ"],"correct":0},
+  {"text":"Đi bộ được trên mặt đất là nhờ lực nào?","answers":["Lực ma sát","Lực điện","Lực từ","Lực đàn hồi"],"correct":0},
+  {"text":"Nếu không có lực ma sát, điều gì có thể xảy ra?","answers":["Con người khó đi lại","Mọi vật sáng hơn","Mọi vật nặng hơn","Không khí biến mất"],"correct":0},
+  {"text":"Lực ma sát giữa bánh xe và mặt đường giúp gì cho xe?","answers":["Giúp xe chuyển động và không bị trượt","Làm xe nhẹ hơn","Làm xe mất động cơ","Làm xe biến dạng"],"correct":0},
+  {"text":"Ma sát có thể gây ra hiện tượng gì?","answers":["Làm nóng vật","Làm vật biến mất","Làm vật phát sáng mạnh","Làm vật mất khối lượng"],"correct":0},
+  {"text":"Ví dụ nào sau đây có lực ma sát?","answers":["Phanh xe đạp","Nam châm hút sắt","Bóng đèn sáng","Nước sôi"],"correct":0},
+  {"text":"Khi xoa hai bàn tay vào nhau thấy nóng lên là do gì?","answers":["Lực ma sát","Lực hút","Trọng lực","Lực điện"],"correct":0},
+  {"text":"Lực ma sát có thể có lợi như thế nào?","answers":["Giúp cầm nắm vật chắc hơn","Làm vật luôn trơn hơn","Làm mọi vật bay lên","Ngăn ánh sáng truyền đi"],"correct":0},
+  {"text":"Lực ma sát có hại như thế nào?","answers":["Làm mòn các bộ phận máy móc","Làm tăng khối lượng","Làm vật phát sáng","Làm vật tự chuyển động"],"correct":0},
+  {"text":"Để giảm ma sát trong máy móc người ta thường làm gì?","answers":["Tra dầu mỡ","Tăng độ nhám","Tăng lực ép","Làm bề mặt gồ ghề"],"correct":0},
+  {"text":"Để tăng ma sát giữa lốp xe và mặt đường, lốp xe thường có gì?","answers":["Rãnh và gai","Mặt hoàn toàn nhẵn","Lớp kính","Nam châm"],"correct":0},
+  {"text":"Khi vật trượt trên mặt sàn, loại ma sát nào xuất hiện?","answers":["Ma sát trượt","Ma sát nghỉ","Ma sát lăn","Lực đàn hồi"],"correct":0},
+  {"text":"Khi bánh xe lăn trên đường, loại ma sát chủ yếu là gì?","answers":["Ma sát lăn","Ma sát trượt","Ma sát nghỉ","Lực hút"],"correct":0},
+  {"text":"Ma sát nghỉ xuất hiện khi nào?","answers":["Khi vật chưa trượt nhưng có xu hướng trượt","Khi vật đang bay","Khi vật phát sáng","Khi vật nóng chảy"],"correct":0},
+  {"text":"Lực ma sát phụ thuộc nhiều vào yếu tố nào?","answers":["Độ nhám bề mặt tiếp xúc","Màu sắc vật","Nhiệt độ không khí","Ánh sáng"],"correct":0},
+  {"text":"Khi kéo vật nặng trên mặt đất gồ ghề, lực ma sát thường thế nào?","answers":["Lớn hơn","Nhỏ hơn","Bằng 0","Không đổi hoàn toàn"],"correct":0},
+  {"text":"Ổ bi trong bánh xe giúp gì?","answers":["Giảm ma sát","Tăng ma sát","Làm bánh xe nặng hơn","Làm bánh xe đổi màu"],"correct":0},
+  {"text":"Trong đời sống, lực ma sát vừa có lợi vừa có hại đúng hay sai?","answers":["Đúng","Sai","Chỉ có lợi","Chỉ có hại"],"correct":0}
 ]
