@@ -4,23 +4,41 @@
     "name": "Áp suất cơ bản",
     "x": 120,
     "y": 180,
+    "type": "lesson",
     "questionFile": "ap_suat_co_ban.json",
-    "unlockAfter": null
+    "unlockAfter": null,
+    "difficulty": "normal",
+    "chestType": "wood",
+    "rewardExp": 15,
+    "recommendedLevel": 2,
+    "theme": "pressure"
   },
   {
     "id": "ap_2",
     "name": "Áp suất chất lỏng",
     "x": 520,
     "y": 360,
+    "type": "lesson",
     "questionFile": "ap_suat_chat_long.json",
-    "unlockAfter": "ap_1"
+    "unlockAfter": "ap_1",
+    "difficulty": "hard",
+    "chestType": "iron",
+    "rewardExp": 25,
+    "recommendedLevel": 3,
+    "theme": "pressure"
   },
   {
     "id": "ap_3",
     "name": "Áp suất khí quyển",
     "x": 920,
     "y": 180,
+    "type": "lesson",
     "questionFile": "ap_suat_khi_quyen.json",
-    "unlockAfter": "ap_2"
+    "unlockAfter": "ap_2",
+    "difficulty": "hard",
+    "chestType": "silver",
+    "rewardExp": 35,
+    "recommendedLevel": 4,
+    "theme": "pressure"
   }
 ]
