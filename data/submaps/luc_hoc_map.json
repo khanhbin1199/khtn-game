@@ -1,0 +1,26 @@
+[
+  {
+    "id": "luc_1",
+    "name": "Lực và tác dụng",
+    "x": 120,
+    "y": 180,
+    "questionFile": "luc_luc_va_tac_dung.json",
+    "unlockAfter": null
+  },
+  {
+    "id": "luc_2",
+    "name": "Trọng lực",
+    "x": 520,
+    "y": 360,
+    "questionFile": "luc_trong_luc.json",
+    "unlockAfter": "luc_1"
+  },
+  {
+    "id": "luc_3",
+    "name": "Lực ma sát",
+    "x": 920,
+    "y": 180,
+    "questionFile": "luc_ma_sat.json",
+    "unlockAfter": "luc_2"
+  }
+]
