@@ -6,7 +6,7 @@ let attemptsLeft = 2;
 let currentQuestionIndex = 0;
 let answeredCurrentQuestion = false;
 
-const retryCost = 20;
+const retryCost = 19;
 const questionsPerNode = 5;
 
 let savedInventory = JSON.parse(localStorage.getItem("inventory")) || {};
