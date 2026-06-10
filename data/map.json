@@ -1,34 +1,38 @@
 [
   {
-    "id": 1,
+    "id": "luc",
     "name": "Lực học",
     "x": 120,
-    "y": 120,
-    "questionFile": "luc_hoc.json",
+    "y": 180,
+    "type": "region",
+    "subMap": "luc_hoc_map.json",
     "unlockAfter": null
   },
   {
-    "id": 2,
+    "id": "dien",
     "name": "Điện học",
-    "x": 600,
-    "y": 300,
-    "questionFile": "dien_hoc.json",
-    "unlockAfter": 1
+    "x": 720,
+    "y": 360,
+    "type": "region",
+    "subMap": "dien_hoc_map.json",
+    "unlockAfter": "luc"
   },
   {
-    "id": 3,
+    "id": "ap",
     "name": "Áp suất",
-    "x": 1100,
-    "y": 100,
-    "questionFile": "ap_suat.json",
-    "unlockAfter": 2
+    "x": 1320,
+    "y": 160,
+    "type": "region",
+    "subMap": "ap_suat_map.json",
+    "unlockAfter": "dien"
   },
   {
-    "id": 4,
+    "id": "quang",
     "name": "Quang học",
-    "x": 1100,
-    "y": 500,
-    "questionFile": "quanghoc.json",
-    "unlockAfter": 2
+    "x": 1320,
+    "y": 560,
+    "type": "region",
+    "subMap": "quang_hoc_map.json",
+    "unlockAfter": "dien"
   }
 ]
