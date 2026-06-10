@@ -1,52 +1,22 @@
 [
-  {
-    "text": "Nguồn sáng là gì?",
-    "answers": ["Vật tự phát ra ánh sáng", "Vật phản chiếu ánh sáng", "Vật hấp thụ ánh sáng", "Vật cản ánh sáng"],
-    "correct": 0
-  },
-  {
-    "text": "Trong môi trường trong suốt và đồng tính, ánh sáng truyền theo đường nào?",
-    "answers": ["Đường cong", "Đường gấp khúc", "Đường thẳng", "Đường xoắn"],
-    "correct": 2
-  },
-  {
-    "text": "Hiện tượng nhìn thấy ảnh của mình trong gương là do gì?",
-    "answers": ["Khúc xạ ánh sáng", "Tán sắc ánh sáng", "Phản xạ ánh sáng", "Hấp thụ ánh sáng"],
-    "correct": 2
-  },
-  {
-    "text": "Ảnh tạo bởi gương phẳng có tính chất nào?",
-    "answers": ["Ảnh thật, nhỏ hơn vật", "Ảnh ảo, lớn hơn vật", "Ảnh ảo, bằng vật", "Ảnh thật, bằng vật"],
-    "correct": 2
-  },
-  {
-    "text": "Khi ánh sáng gặp gương phẳng thì xảy ra hiện tượng gì?",
-    "answers": ["Khúc xạ", "Phản xạ", "Tán sắc", "Hấp thụ hoàn toàn"],
-    "correct": 1
-  },
-  {
-    "text": "Vật nào dưới đây không phải nguồn sáng?",
-    "answers": ["Mặt Trời", "Ngọn nến đang cháy", "Bóng đèn đang sáng", "Mặt Trăng"],
-    "correct": 3
-  },
-  {
-    "text": "Tia phản xạ nằm trong mặt phẳng nào?",
-    "answers": ["Mặt phẳng chứa tia tới và pháp tuyến", "Mặt phẳng chứa gương", "Mặt phẳng vuông góc gương", "Mặt phẳng bất kỳ"],
-    "correct": 0
-  },
-  {
-    "text": "Góc phản xạ có quan hệ như thế nào với góc tới?",
-    "answers": ["Lớn hơn góc tới", "Nhỏ hơn góc tới", "Bằng góc tới", "Không liên quan"],
-    "correct": 2
-  },
-  {
-    "text": "Kính lúp hoạt động dựa trên hiện tượng nào?",
-    "answers": ["Phản xạ ánh sáng", "Khúc xạ ánh sáng", "Tán sắc ánh sáng", "Phát sáng"],
-    "correct": 1
-  },
-  {
-    "text": "Vì sao ta nhìn thấy vật?",
-    "answers": ["Vật tự phát sáng", "Có ánh sáng từ vật truyền vào mắt", "Mắt phát ra ánh sáng", "Không cần ánh sáng"],
-    "correct": 1
-  }
+  {"text":"Nguồn sáng là gì?","answers":["Vật tự phát ra ánh sáng","Vật chỉ phản chiếu ánh sáng","Vật không cho ánh sáng truyền qua","Vật hấp thụ toàn bộ âm thanh"],"correct":0},
+  {"text":"Vật nào dưới đây là nguồn sáng?","answers":["Mặt Trời","Mặt Trăng","Quyển sách","Chiếc bàn"],"correct":0},
+  {"text":"Vật nào dưới đây không phải nguồn sáng?","answers":["Mặt Trăng","Ngọn nến đang cháy","Bóng đèn đang sáng","Mặt Trời"],"correct":0},
+  {"text":"Vì sao Mặt Trăng không phải là nguồn sáng?","answers":["Vì Mặt Trăng chỉ phản chiếu ánh sáng Mặt Trời","Vì Mặt Trăng ở xa Trái Đất","Vì Mặt Trăng có màu trắng","Vì Mặt Trăng chuyển động"],"correct":0},
+  {"text":"Vật sáng là gì?","answers":["Vật tự phát sáng hoặc hắt lại ánh sáng từ vật khác","Chỉ vật tự phát sáng","Chỉ vật màu trắng","Chỉ vật rất nóng"],"correct":0},
+  {"text":"Ta nhìn thấy một vật khi nào?","answers":["Khi có ánh sáng từ vật truyền vào mắt ta","Khi mắt phát ra ánh sáng đến vật","Khi vật không nhận ánh sáng","Khi vật ở trong bóng tối hoàn toàn"],"correct":0},
+  {"text":"Trong môi trường trong suốt và đồng tính, ánh sáng truyền theo đường nào?","answers":["Đường thẳng","Đường cong","Đường gấp khúc","Đường tròn"],"correct":0},
+  {"text":"Đường truyền của ánh sáng được biểu diễn bằng gì?","answers":["Tia sáng","Sóng âm","Dòng điện","Đường lực từ"],"correct":0},
+  {"text":"Chùm sáng gồm gì?","answers":["Nhiều tia sáng","Nhiều phân tử nước","Nhiều hạt bụi","Nhiều dòng điện"],"correct":0},
+  {"text":"Chùm sáng song song là chùm sáng có các tia như thế nào?","answers":["Không giao nhau và song song với nhau","Hội tụ tại một điểm","Tỏa ra từ một điểm","Cong lại thành vòng"],"correct":0},
+  {"text":"Chùm sáng hội tụ là chùm sáng có các tia như thế nào?","answers":["Gặp nhau tại một điểm","Song song mãi mãi","Tỏa ra xa nhau","Biến mất ngay lập tức"],"correct":0},
+  {"text":"Chùm sáng phân kì là chùm sáng có các tia như thế nào?","answers":["Tỏa ra xa nhau","Gặp nhau tại một điểm","Song song tuyệt đối","Không truyền đi"],"correct":0},
+  {"text":"Bóng tối hình thành khi nào?","answers":["Khi ánh sáng bị vật cản chắn lại","Khi vật tự phát sáng mạnh","Khi không có vật cản","Khi ánh sáng truyền qua vật trong suốt"],"correct":0},
+  {"text":"Vật cản sáng là vật như thế nào?","answers":["Vật không cho ánh sáng truyền qua","Vật tự phát sáng","Vật luôn trong suốt","Vật phát ra âm thanh"],"correct":0},
+  {"text":"Vùng bóng tối là vùng như thế nào?","answers":["Không nhận được ánh sáng từ nguồn sáng","Nhận được toàn bộ ánh sáng","Tự phát sáng","Luôn có nhiệt độ cao"],"correct":0},
+  {"text":"Vùng nửa tối là vùng như thế nào?","answers":["Chỉ nhận được một phần ánh sáng từ nguồn sáng","Không nhận được ánh sáng nào","Tự phát ra ánh sáng","Không có vật cản"],"correct":0},
+  {"text":"Hiện tượng nhật thực liên quan đến kiến thức nào?","answers":["Sự truyền thẳng của ánh sáng và bóng tối","Dòng điện trong kim loại","Áp suất chất lỏng","Lực ma sát"],"correct":0},
+  {"text":"Hiện tượng nguyệt thực xảy ra khi Mặt Trăng đi vào vùng nào của Trái Đất?","answers":["Vùng bóng tối","Vùng phát sáng","Vùng điện trường","Vùng áp suất cao"],"correct":0},
+  {"text":"Vì sao trong phòng tối ta khó nhìn thấy đồ vật?","answers":["Vì có ít ánh sáng từ vật truyền vào mắt","Vì mắt không có khối lượng","Vì đồ vật mất màu","Vì không khí không tồn tại"],"correct":0},
+  {"text":"Muốn nhìn rõ vật trong bóng tối, ta cần làm gì?","answers":["Chiếu sáng vật hoặc dùng nguồn sáng","Làm vật nặng hơn","Tăng áp suất không khí","Làm vật nhiễm điện"],"correct":0}
 ]
