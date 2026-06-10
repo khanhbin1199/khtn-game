@@ -30,18 +30,26 @@ const chestRewards = [
   { name: "Bụi hỏa khí", min: 1, max: 3 },
   { name: "Gỗ cứng", min: 1, max: 3 },
   { name: "Đá thô", min: 1, max: 3 },
+
   { name: "Tinh thạch nhỏ", min: 1, max: 2 },
   { name: "Lông chim lửa", min: 1, max: 2 },
   { name: "Tinh hoa băng", min: 1, max: 2 },
   { name: "Mảnh điện tích", min: 1, max: 2 },
+
   { name: "Tinh thạch lôi điện", min: 1, max: 1 },
   { name: "Lõi năng lượng", min: 1, max: 1 },
   { name: "Hạch băng", min: 1, max: 1 },
   { name: "Hỏa ngọc", min: 1, max: 1 },
+
   { name: "Mảnh thái dương", min: 1, max: 1 },
   { name: "Lõi hư không", min: 1, max: 1 },
   { name: "Tinh tú cổ đại", min: 1, max: 1 },
-  { name: "Huyết tinh long tộc", min: 1, max: 1 }
+  { name: "Huyết tinh long tộc", min: 1, max: 1 },
+
+  { name: "Tinh hạch thần vực", min: 1, max: 1 },
+  { name: "Mảnh linh hồn cổ", min: 1, max: 1 },
+  { name: "Tinh thể lượng tử", min: 1, max: 1 },
+  { name: "Trái tim nguyên tố", min: 1, max: 1 }
 ];
 
 const shopItems = [
@@ -49,18 +57,22 @@ const shopItems = [
   { name: "Bụi hỏa khí", rarity: "Thường", buyPrice: 15, sellPrice: 8, unlockLevel: 1 },
   { name: "Gỗ cứng", rarity: "Thường", buyPrice: 12, sellPrice: 6, unlockLevel: 1 },
   { name: "Đá thô", rarity: "Thường", buyPrice: 12, sellPrice: 6, unlockLevel: 1 },
+
   { name: "Tinh thạch nhỏ", rarity: "Hiếm", buyPrice: 30, sellPrice: 15, unlockLevel: 2 },
   { name: "Lông chim lửa", rarity: "Hiếm", buyPrice: 50, sellPrice: 25, unlockLevel: 3 },
   { name: "Tinh hoa băng", rarity: "Hiếm", buyPrice: 50, sellPrice: 25, unlockLevel: 3 },
   { name: "Mảnh điện tích", rarity: "Hiếm", buyPrice: 45, sellPrice: 22, unlockLevel: 3 },
+
   { name: "Tinh thạch lôi điện", rarity: "Quý", buyPrice: 100, sellPrice: 50, unlockLevel: 5 },
   { name: "Lõi năng lượng", rarity: "Quý", buyPrice: 150, sellPrice: 75, unlockLevel: 7 },
   { name: "Hạch băng", rarity: "Quý", buyPrice: 120, sellPrice: 60, unlockLevel: 6 },
   { name: "Hỏa ngọc", rarity: "Quý", buyPrice: 120, sellPrice: 60, unlockLevel: 6 },
+
   { name: "Mảnh thái dương", rarity: "Sử Thi", buyPrice: 300, sellPrice: 150, unlockLevel: 10 },
   { name: "Lõi hư không", rarity: "Sử Thi", buyPrice: 450, sellPrice: 225, unlockLevel: 12 },
   { name: "Tinh tú cổ đại", rarity: "Sử Thi", buyPrice: 500, sellPrice: 250, unlockLevel: 12 },
   { name: "Huyết tinh long tộc", rarity: "Sử Thi", buyPrice: 550, sellPrice: 275, unlockLevel: 13 },
+
   { name: "Tinh hạch thần vực", rarity: "Bán Thần", buyPrice: 900, sellPrice: 450, unlockLevel: 18 },
   { name: "Mảnh linh hồn cổ", rarity: "Bán Thần", buyPrice: 1000, sellPrice: 500, unlockLevel: 20 },
   { name: "Tinh thể lượng tử", rarity: "Huyền Thoại", buyPrice: 1100, sellPrice: 550, unlockLevel: 22 },
@@ -94,13 +106,16 @@ const craftingRecipes = [
   { name: "Thần Khí Nguyên Tố", rarity: "Thần Thoại", damage: 120, successRate: 15, materials: { "Nhật Diệu Thần Kiếm": 1, "Trượng Hư Không": 1, "Thần Cung Tinh Tú": 1, "Trái tim nguyên tố": 1 } }
 ];
 
-loadWorldMap();
-
 async function loadWorldMap() {
   const response = await fetch("data/map.json");
   worldMapNodes = await response.json();
+
   currentMapNodes = worldMapNodes;
   currentRegion = null;
+  currentNode = null;
+  currentQuestions = [];
+  playerPosition = { x: 25, y: 250 };
+
   renderMap("Bản đồ thế giới");
   updateInventory();
 }
@@ -108,15 +123,16 @@ async function loadWorldMap() {
 async function loadSubMap(regionNode) {
   const response = await fetch(`data/submaps/${regionNode.subMap}`);
   currentMapNodes = await response.json();
+
   currentRegion = regionNode;
+  currentNode = null;
+  currentQuestions = [];
   playerPosition = { x: 25, y: 250 };
-  renderMap(regionNode.name);
+
+  renderMap(`Khu vực: ${regionNode.name}`);
 }
 
 function renderMap(titleText) {
-  currentNode = null;
-  currentQuestions = [];
-
   const map = document.getElementById("map");
   const answersDiv = document.getElementById("answers");
 
@@ -124,14 +140,14 @@ function renderMap(titleText) {
   map.innerHTML = "";
   answersDiv.innerHTML = "";
 
+  document.getElementById("progress").innerText = titleText;
   document.getElementById("question").innerText = currentRegion
     ? `Khu vực: ${currentRegion.name}`
     : "Chọn khu vực trên bản đồ";
-
-  document.getElementById("progress").innerText = titleText;
   document.getElementById("result").innerText = "";
   document.getElementById("nextBtn").style.display = "none";
 
+  removeBuyRetryButton();
   drawMapLines(map);
 
   currentMapNodes.forEach(node => {
@@ -164,7 +180,7 @@ function renderMap(titleText) {
         } else {
           await startQuestionNode(node);
         }
-      }, 300);
+      }, 250);
     };
 
     map.appendChild(nodeDiv);
@@ -252,9 +268,7 @@ function movePlayerTo(node) {
     player.style.left = playerPosition.x + "px";
     player.style.top = playerPosition.y + "px";
   }
-}
-
-async function startQuestionNode(node) {
+}async function startQuestionNode(node) {
   currentNode = node;
 
   const response = await fetch(`data/questions/${node.questionFile}`);
@@ -264,19 +278,7 @@ async function startQuestionNode(node) {
   currentQuestionIndex = 0;
 
   document.getElementById("map").style.display = "none";
-
   loadQuestion();
-}
-
-function getLevelRequired(level) {
-  return 100 + (level - 1) * 50;
-}
-
-function updateUI() {
-  const levelRequired = getLevelRequired(level);
-
-  document.getElementById("exp").innerText =
-    `Lv ${level} | EXP: ${exp} | Cấp: ${levelExp}/${levelRequired} | Lượt trả lời: ${attemptsLeft}`;
 }
 
 function loadQuestion() {
@@ -338,8 +340,9 @@ function answerQuestion(index) {
       document.getElementById("nextBtn").style.display = "block";
     }
   } else {
-    document.getElementById("result").innerText = "Sai rồi.";
-
+    document.getElementById("result").innerText =
+      attemptsLeft > 0 ? `Sai rồi. Còn ${attemptsLeft} lượt.` : "Sai rồi. Bạn đã hết lượt.";
+    
     if (attemptsLeft <= 0) {
       showBuyRetryButton();
     }
@@ -357,11 +360,21 @@ function checkLevelUp() {
   }
 }
 
+function getLevelRequired(level) {
+  return 100 + (level - 1) * 50;
+}
+
+function updateUI() {
+  const levelRequired = getLevelRequired(level);
+
+  document.getElementById("exp").innerText =
+    `Lv ${level} | EXP: ${exp} | Cấp: ${levelExp}/${levelRequired} | Lượt trả lời: ${attemptsLeft}`;
+}
+
 function showBuyRetryButton() {
   if (document.getElementById("buyRetryBtn")) return;
 
   const buyButton = document.createElement("button");
-
   buyButton.id = "buyRetryBtn";
   buyButton.innerText = `Mua thêm 2 lượt (${retryCost} EXP)`;
 
@@ -373,10 +386,10 @@ function showBuyRetryButton() {
 
     exp -= retryCost;
     attemptsLeft += 2;
+
     saveGame();
 
     document.getElementById("result").innerText = "Đã mua thêm 2 lượt.";
-
     updateUI();
   };
 
@@ -385,7 +398,10 @@ function showBuyRetryButton() {
 
 function removeBuyRetryButton() {
   const buyButton = document.getElementById("buyRetryBtn");
-  if (buyButton) buyButton.remove();
+
+  if (buyButton) {
+    buyButton.remove();
+  }
 }
 
 document.getElementById("nextBtn").onclick = function () {
@@ -468,7 +484,7 @@ function openChest() {
 
   backButton.onclick = function () {
     removeBuyRetryButton();
-    renderMap(currentRegion ? currentRegion.name : "Bản đồ thế giới");
+    renderMap(currentRegion ? `Khu vực: ${currentRegion.name}` : "Bản đồ thế giới");
   };
 
   document.getElementById("answers").appendChild(backButton);
@@ -560,7 +576,7 @@ function showShopPanel() {
   const backButton = document.createElement("button");
   backButton.innerText = currentRegion ? "Quay lại map khu vực" : "Quay lại bản đồ";
   backButton.onclick = function () {
-    renderMap(currentRegion ? currentRegion.name : "Bản đồ thế giới");
+    renderMap(currentRegion ? `Khu vực: ${currentRegion.name}` : "Bản đồ thế giới");
   };
 
   answersDiv.appendChild(backButton);
@@ -568,17 +584,30 @@ function showShopPanel() {
 }
 
 function buyItem(item) {
-  if (level < item.unlockLevel || exp < item.buyPrice) return;
+  if (level < item.unlockLevel) {
+    document.getElementById("result").innerText = "Vật phẩm này chưa mở khóa.";
+    return;
+  }
+
+  if (exp < item.buyPrice) {
+    document.getElementById("result").innerText = "Không đủ EXP.";
+    return;
+  }
 
   exp -= item.buyPrice;
   addItemToInventory(item.name, 1);
 
   saveGame();
   updateInventory();
+
+  document.getElementById("result").innerText = `Đã mua ${item.name} x1.`;
 }
 
 function sellItem(item) {
-  if (!inventory[item.name] || inventory[item.name] <= 0) return;
+  if (!inventory[item.name] || inventory[item.name] <= 0) {
+    document.getElementById("result").innerText = "Không có vật phẩm để bán.";
+    return;
+  }
 
   inventory[item.name]--;
 
@@ -590,6 +619,9 @@ function sellItem(item) {
 
   saveGame();
   updateInventory();
+
+  document.getElementById("result").innerText =
+    `Đã bán ${item.name} x1, nhận ${item.sellPrice} EXP.`;
 }
 
 function showCraftingPanel() {
@@ -642,7 +674,7 @@ function showCraftingPanel() {
   const backButton = document.createElement("button");
   backButton.innerText = currentRegion ? "Quay lại map khu vực" : "Quay lại bản đồ";
   backButton.onclick = function () {
-    renderMap(currentRegion ? currentRegion.name : "Bản đồ thế giới");
+    renderMap(currentRegion ? `Khu vực: ${currentRegion.name}` : "Bản đồ thế giới");
   };
 
   answersDiv.appendChild(backButton);
@@ -681,7 +713,10 @@ function canCraft(recipe) {
 }
 
 function craftWeapon(recipe) {
-  if (!canCraft(recipe)) return;
+  if (!canCraft(recipe)) {
+    document.getElementById("result").innerText = "Không đủ nguyên liệu.";
+    return;
+  }
 
   const success = Math.random() * 100 < recipe.successRate;
 
@@ -745,7 +780,10 @@ function removeItemOrWeapon(name, quantity) {
 }
 
 function addItemToInventory(itemName, quantity) {
-  if (!inventory[itemName]) inventory[itemName] = 0;
+  if (!inventory[itemName]) {
+    inventory[itemName] = 0;
+  }
+
   inventory[itemName] += quantity;
 }
 
@@ -800,7 +838,10 @@ function convertOldInventory(oldInventory) {
   const newInventory = {};
 
   oldInventory.forEach(itemName => {
-    if (!newInventory[itemName]) newInventory[itemName] = 0;
+    if (!newInventory[itemName]) {
+      newInventory[itemName] = 0;
+    }
+
     newInventory[itemName]++;
   });
 
@@ -815,3 +856,5 @@ function saveGame() {
   localStorage.setItem("weapons", JSON.stringify(weapons));
   localStorage.setItem("completedNodes", JSON.stringify(completedNodes));
 }
+
+loadWorldMap();
