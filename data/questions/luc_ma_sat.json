@@ -1,0 +1,56 @@
+[
+  {
+    "text": "Lực là gì?",
+    "answers": [
+      "Tác dụng đẩy hoặc kéo",
+      "Khối lượng",
+      "Nhiệt độ",
+      "Thể tích"
+    ],
+    "correct": 0
+  },
+
+  {
+    "text": "Đơn vị của lực là gì?",
+    "answers": [
+      "Mét",
+      "Niutơn",
+      "Kilôgam",
+      "Giây"
+    ],
+    "correct": 1
+  },
+
+  {
+    "text": "Trọng lực có chiều như thế nào?",
+    "answers": [
+      "Từ dưới lên",
+      "Từ trái sang phải",
+      "Từ trên xuống",
+      "Không xác định"
+    ],
+    "correct": 2
+  },
+
+  {
+    "text": "Lực đàn hồi xuất hiện khi nào?",
+    "answers": [
+      "Khi vật bị biến dạng",
+      "Khi vật nóng lên",
+      "Khi vật tan chảy",
+      "Khi vật đổi màu"
+    ],
+    "correct": 0
+  },
+
+  {
+    "text": "Ma sát xuất hiện khi nào?",
+    "answers": [
+      "Khi các bề mặt tiếp xúc và cản trở chuyển động",
+      "Khi không có lực",
+      "Khi vật ở trong chân không",
+      "Khi vật không có khối lượng"
+    ],
+    "correct": 0
+  }
+]
