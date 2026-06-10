@@ -1,42 +1,22 @@
 [
-  {
-    "text": "Áp suất phụ thuộc vào những yếu tố nào?",
-    "answers": [
-      "Áp lực và diện tích bị ép",
-      "Màu sắc và hình dạng vật",
-      "Nhiệt độ và ánh sáng",
-      "Thời gian và vận tốc"
-    ],
-    "correct": 0
-  },
-  {
-    "text": "Đơn vị của áp suất là gì?",
-    "answers": ["Niutơn", "Paxcan", "Mét", "Jun"],
-    "correct": 1
-  },
-  {
-    "text": "Muốn tăng áp suất, ta có thể làm gì?",
-    "answers": [
-      "Giảm áp lực",
-      "Tăng diện tích bị ép",
-      "Tăng áp lực hoặc giảm diện tích bị ép",
-      "Giảm cả áp lực và diện tích bị ép"
-    ],
-    "correct": 2
-  },
-  {
-    "text": "Áp suất chất lỏng tăng khi nào?",
-    "answers": [
-      "Khi độ sâu tăng",
-      "Khi độ sâu giảm",
-      "Khi vật nhẹ hơn",
-      "Khi ánh sáng mạnh hơn"
-    ],
-    "correct": 0
-  },
-  {
-    "text": "Công thức tính áp suất là gì?",
-    "answers": ["p = F / S", "v = s / t", "P = 10m", "A = F.s"],
-    "correct": 0
-  }
+  {"text":"Áp suất khí quyển là gì?","answers":["Áp suất do lớp không khí bao quanh Trái Đất gây ra","Áp suất do nước trong bình gây ra","Áp suất do vật rắn đặt trên mặt bàn","Áp suất trong lòng chất lỏng בלבד"],"correct":0},
+  {"text":"Vì sao không khí có thể gây áp suất?","answers":["Vì không khí có trọng lượng","Vì không khí không có khối lượng","Vì không khí không chịu lực hút Trái Đất","Vì không khí luôn đứng yên"],"correct":0},
+  {"text":"Dụng cụ nào dùng để đo áp suất khí quyển?","answers":["Áp kế/khí áp kế","Lực kế","Nhiệt kế","Ampe kế"],"correct":0},
+  {"text":"Càng lên cao, áp suất khí quyển thường thay đổi thế nào?","answers":["Giảm dần","Tăng dần","Không đổi","Bằng 0 ngay lập tức"],"correct":0},
+  {"text":"Vì sao áp suất khí quyển giảm khi lên cao?","answers":["Vì lớp không khí phía trên mỏng hơn","Vì nhiệt độ luôn bằng 0","Vì không khí nặng hơn ở trên cao","Vì Trái Đất không hút không khí"],"correct":0},
+  {"text":"Hiện tượng nào chứng tỏ có áp suất khí quyển?","answers":["Ống hút có thể hút nước lên","Bóng đèn phát sáng","Nam châm hút sắt","Vật rơi xuống đất"],"correct":0},
+  {"text":"Khi hút không khí trong ống hút, vì sao nước dâng lên?","answers":["Áp suất khí quyển bên ngoài đẩy nước lên","Nước tự bay lên","Ống hút tạo ra nước","Không khí trong nước kéo nước lên"],"correct":0},
+  {"text":"Áp suất khí quyển tác dụng theo hướng nào?","answers":["Theo mọi phương","Chỉ từ trên xuống","Chỉ từ dưới lên","Chỉ theo phương ngang"],"correct":0},
+  {"text":"Ở gần mực nước biển, áp suất khí quyển thường như thế nào so với trên núi cao?","answers":["Lớn hơn","Nhỏ hơn","Bằng 0","Luôn bằng nhau"],"correct":0},
+  {"text":"Vì sao nắp hộp kín khó mở khi bên trong có áp suất thấp hơn bên ngoài?","answers":["Áp suất khí quyển bên ngoài ép nắp vào","Nắp không chịu lực","Bên trong đẩy nắp ra mạnh hơn","Không khí không gây áp suất"],"correct":0},
+  {"text":"Thí nghiệm úp cốc nước có tờ giấy che miệng cốc chứng tỏ điều gì?","answers":["Áp suất khí quyển có thể giữ tờ giấy và nước không rơi ngay","Nước không có trọng lượng","Giấy hút hết nước","Không khí không tác dụng lực"],"correct":0},
+  {"text":"Áp suất khí quyển có liên quan đến lớp khí nào?","answers":["Lớp khí quyển bao quanh Trái Đất","Lớp nước trong đại dương","Lớp đất đá dưới mặt đất","Lớp kim loại trong vật rắn"],"correct":0},
+  {"text":"Khi bơm bớt không khí trong một bình kín ra ngoài, áp suất trong bình sẽ thế nào?","answers":["Giảm","Tăng","Không đổi","Bằng áp suất chất lỏng"],"correct":0},
+  {"text":"Vì sao gói snack thường phồng lên khi mang lên vùng núi cao?","answers":["Áp suất bên ngoài giảm so với áp suất trong gói","Áp suất bên ngoài tăng mạnh","Không khí trong gói biến mất","Gói bị nóng chảy"],"correct":0},
+  {"text":"Áp suất khí quyển tiêu chuẩn thường được so sánh gần đúng với chiều cao cột thủy ngân nào?","answers":["760 mmHg","76 mmHg","7,6 mmHg","7600 mmHg"],"correct":0},
+  {"text":"Người ta dùng đơn vị nào để biểu diễn áp suất khí quyển?","answers":["Pa hoặc mmHg","Mét","Kilôgam","Jun"],"correct":0},
+  {"text":"Vì sao bình giác hút có thể bám vào da?","answers":["Áp suất bên ngoài lớn hơn áp suất bên trong bình","Bình có nam châm","Da tự hút bình","Không khí bên ngoài biến mất"],"correct":0},
+  {"text":"Khi áp suất khí quyển thay đổi mạnh, hiện tượng thời tiết nào có thể liên quan?","answers":["Thay đổi thời tiết, gió, mưa","Vật rắn mất khối lượng","Nước mất hoàn toàn trọng lượng","Dòng điện tăng trong dây"],"correct":0},
+  {"text":"Áp suất khí quyển ở mọi nơi trên Trái Đất có hoàn toàn như nhau không?","answers":["Không, nó thay đổi theo độ cao và điều kiện thời tiết","Có, luôn bằng nhau","Chỉ bằng nhau vào ban đêm","Chỉ phụ thuộc màu trời"],"correct":0},
+  {"text":"Cơ thể người không bị ép bẹp bởi áp suất khí quyển vì sao?","answers":["Vì bên trong cơ thể cũng có áp suất cân bằng lại","Vì áp suất khí quyển rất nhỏ bằng 0","Vì xương không chịu lực","Vì không khí không tác dụng lên cơ thể"],"correct":0}
 ]
