@@ -1,42 +1,22 @@
 [
-  {
-    "text": "Áp suất phụ thuộc vào những yếu tố nào?",
-    "answers": [
-      "Áp lực và diện tích bị ép",
-      "Màu sắc và hình dạng vật",
-      "Nhiệt độ và ánh sáng",
-      "Thời gian và vận tốc"
-    ],
-    "correct": 0
-  },
-  {
-    "text": "Đơn vị của áp suất là gì?",
-    "answers": ["Niutơn", "Paxcan", "Mét", "Jun"],
-    "correct": 1
-  },
-  {
-    "text": "Muốn tăng áp suất, ta có thể làm gì?",
-    "answers": [
-      "Giảm áp lực",
-      "Tăng diện tích bị ép",
-      "Tăng áp lực hoặc giảm diện tích bị ép",
-      "Giảm cả áp lực và diện tích bị ép"
-    ],
-    "correct": 2
-  },
-  {
-    "text": "Áp suất chất lỏng tăng khi nào?",
-    "answers": [
-      "Khi độ sâu tăng",
-      "Khi độ sâu giảm",
-      "Khi vật nhẹ hơn",
-      "Khi ánh sáng mạnh hơn"
-    ],
-    "correct": 0
-  },
-  {
-    "text": "Công thức tính áp suất là gì?",
-    "answers": ["p = F / S", "v = s / t", "P = 10m", "A = F.s"],
-    "correct": 0
-  }
+  {"text":"Áp suất là đại lượng cho biết điều gì?","answers":["Độ lớn của áp lực trên một đơn vị diện tích bị ép","Khối lượng của vật","Thời gian chuyển động","Nhiệt độ của vật"],"correct":0},
+  {"text":"Công thức tính áp suất là gì?","answers":["p = F / S","v = s / t","P = 10m","A = F.s"],"correct":0},
+  {"text":"Trong công thức p = F/S, F là gì?","answers":["Áp lực","Diện tích bị ép","Áp suất","Khối lượng"],"correct":0},
+  {"text":"Trong công thức p = F/S, S là gì?","answers":["Diện tích bị ép","Áp lực","Vận tốc","Thời gian"],"correct":0},
+  {"text":"Đơn vị của áp suất là gì?","answers":["Paxcan","Niutơn","Mét vuông","Kilôgam"],"correct":0},
+  {"text":"1 Pa tương ứng với đơn vị nào?","answers":["1 N/m²","1 N.m","1 kg/m³","1 m/s"],"correct":0},
+  {"text":"Muốn tăng áp suất, ta có thể làm gì?","answers":["Tăng áp lực hoặc giảm diện tích bị ép","Giảm áp lực và tăng diện tích bị ép","Chỉ tăng diện tích bị ép","Chỉ giảm khối lượng riêng"],"correct":0},
+  {"text":"Muốn giảm áp suất, ta có thể làm gì?","answers":["Giảm áp lực hoặc tăng diện tích bị ép","Tăng áp lực","Giảm diện tích bị ép","Tăng cả áp lực và giảm diện tích"],"correct":0},
+  {"text":"Vì sao dao sắc cắt dễ hơn dao cùn?","answers":["Vì diện tích tiếp xúc nhỏ nên áp suất lớn","Vì khối lượng dao nhỏ hơn","Vì dao sắc nóng hơn","Vì dao sắc không gây áp lực"],"correct":0},
+  {"text":"Vì sao bánh xe tăng thường có bản xích rộng?","answers":["Để tăng diện tích tiếp xúc, giảm áp suất lên mặt đất","Để tăng áp suất lên mặt đất","Để làm xe nhẹ hơn","Để giảm ma sát hoàn toàn"],"correct":0},
+  {"text":"Khi cùng một lực tác dụng, diện tích bị ép càng nhỏ thì áp suất thế nào?","answers":["Càng lớn","Càng nhỏ","Không đổi","Bằng 0"],"correct":0},
+  {"text":"Khi cùng một diện tích bị ép, áp lực càng lớn thì áp suất thế nào?","answers":["Càng lớn","Càng nhỏ","Không đổi","Không xác định"],"correct":0},
+  {"text":"Áp lực là gì?","answers":["Lực ép có phương vuông góc với mặt bị ép","Lực kéo song song mặt tiếp xúc","Lực ma sát giữa hai vật","Lực đàn hồi của lò xo"],"correct":0},
+  {"text":"Trường hợp nào tạo áp suất lớn nhất nếu áp lực như nhau?","answers":["Mũi đinh nhọn","Mặt bàn rộng","Đế giày rộng","Bánh xe bản rộng"],"correct":0},
+  {"text":"Vì sao người đi trên tuyết thường dùng ván trượt rộng?","answers":["Để tăng diện tích tiếp xúc, giảm áp suất","Để giảm diện tích tiếp xúc","Để tăng trọng lượng","Để tăng áp suất lên tuyết"],"correct":0},
+  {"text":"Nếu áp lực tăng gấp đôi còn diện tích không đổi, áp suất sẽ thế nào?","answers":["Tăng gấp đôi","Giảm một nửa","Không đổi","Bằng 0"],"correct":0},
+  {"text":"Nếu diện tích bị ép tăng gấp đôi còn áp lực không đổi, áp suất sẽ thế nào?","answers":["Giảm một nửa","Tăng gấp đôi","Không đổi","Tăng bốn lần"],"correct":0},
+  {"text":"Trong các cách sau, cách nào làm giảm áp suất của người lên mặt đất?","answers":["Đi giày có đế rộng","Đi giày gót nhọn","Đứng bằng một chân","Mang thêm vật nặng"],"correct":0},
+  {"text":"Đinh nhọn dễ đóng vào gỗ vì lý do nào?","answers":["Diện tích mũi đinh nhỏ nên áp suất lớn","Đinh có khối lượng nhỏ","Gỗ không chịu áp lực","Mũi đinh làm giảm áp suất"],"correct":0},
+  {"text":"Áp suất phụ thuộc trực tiếp vào những yếu tố nào?","answers":["Áp lực và diện tích bị ép","Khối lượng riêng và thể tích","Thời gian và vận tốc","Nhiệt độ và màu sắc"],"correct":0}
 ]
