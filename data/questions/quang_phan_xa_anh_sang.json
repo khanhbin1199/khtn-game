@@ -1,52 +1,22 @@
 [
-  {
-    "text": "Nguồn sáng là gì?",
-    "answers": ["Vật tự phát ra ánh sáng", "Vật phản chiếu ánh sáng", "Vật hấp thụ ánh sáng", "Vật cản ánh sáng"],
-    "correct": 0
-  },
-  {
-    "text": "Trong môi trường trong suốt và đồng tính, ánh sáng truyền theo đường nào?",
-    "answers": ["Đường cong", "Đường gấp khúc", "Đường thẳng", "Đường xoắn"],
-    "correct": 2
-  },
-  {
-    "text": "Hiện tượng nhìn thấy ảnh của mình trong gương là do gì?",
-    "answers": ["Khúc xạ ánh sáng", "Tán sắc ánh sáng", "Phản xạ ánh sáng", "Hấp thụ ánh sáng"],
-    "correct": 2
-  },
-  {
-    "text": "Ảnh tạo bởi gương phẳng có tính chất nào?",
-    "answers": ["Ảnh thật, nhỏ hơn vật", "Ảnh ảo, lớn hơn vật", "Ảnh ảo, bằng vật", "Ảnh thật, bằng vật"],
-    "correct": 2
-  },
-  {
-    "text": "Khi ánh sáng gặp gương phẳng thì xảy ra hiện tượng gì?",
-    "answers": ["Khúc xạ", "Phản xạ", "Tán sắc", "Hấp thụ hoàn toàn"],
-    "correct": 1
-  },
-  {
-    "text": "Vật nào dưới đây không phải nguồn sáng?",
-    "answers": ["Mặt Trời", "Ngọn nến đang cháy", "Bóng đèn đang sáng", "Mặt Trăng"],
-    "correct": 3
-  },
-  {
-    "text": "Tia phản xạ nằm trong mặt phẳng nào?",
-    "answers": ["Mặt phẳng chứa tia tới và pháp tuyến", "Mặt phẳng chứa gương", "Mặt phẳng vuông góc gương", "Mặt phẳng bất kỳ"],
-    "correct": 0
-  },
-  {
-    "text": "Góc phản xạ có quan hệ như thế nào với góc tới?",
-    "answers": ["Lớn hơn góc tới", "Nhỏ hơn góc tới", "Bằng góc tới", "Không liên quan"],
-    "correct": 2
-  },
-  {
-    "text": "Kính lúp hoạt động dựa trên hiện tượng nào?",
-    "answers": ["Phản xạ ánh sáng", "Khúc xạ ánh sáng", "Tán sắc ánh sáng", "Phát sáng"],
-    "correct": 1
-  },
-  {
-    "text": "Vì sao ta nhìn thấy vật?",
-    "answers": ["Vật tự phát sáng", "Có ánh sáng từ vật truyền vào mắt", "Mắt phát ra ánh sáng", "Không cần ánh sáng"],
-    "correct": 1
-  }
+  {"text":"Phản xạ ánh sáng là hiện tượng gì?","answers":["Ánh sáng bị hắt lại khi gặp bề mặt chắn","Ánh sáng đi xuyên qua vật chắn","Ánh sáng biến thành âm thanh","Ánh sáng làm vật mất khối lượng"],"correct":0},
+  {"text":"Khi tia sáng chiếu vào gương phẳng, hiện tượng chính xảy ra là gì?","answers":["Phản xạ ánh sáng","Bay hơi","Nhiễm điện","Dẫn nhiệt"],"correct":0},
+  {"text":"Tia tới là gì?","answers":["Tia sáng chiếu đến bề mặt phản xạ","Tia sáng bật ra khỏi bề mặt","Đường vuông góc với gương","Ảnh trong gương"],"correct":0},
+  {"text":"Tia phản xạ là gì?","answers":["Tia sáng bật ra khỏi bề mặt phản xạ","Tia sáng chiếu đến gương","Mặt phẳng của gương","Vật đặt trước gương"],"correct":0},
+  {"text":"Pháp tuyến tại điểm tới là gì?","answers":["Đường thẳng vuông góc với mặt phản xạ tại điểm tới","Đường song song với mặt gương","Đường nối vật với ảnh","Đường cong của tia sáng"],"correct":0},
+  {"text":"Góc tới là góc giữa những yếu tố nào?","answers":["Tia tới và pháp tuyến","Tia tới và mặt gương","Tia phản xạ và mặt đất","Vật và ảnh"],"correct":0},
+  {"text":"Góc phản xạ là góc giữa những yếu tố nào?","answers":["Tia phản xạ và pháp tuyến","Tia tới và mặt gương","Tia phản xạ và mặt gương","Vật và gương"],"correct":0},
+  {"text":"Theo định luật phản xạ ánh sáng, góc phản xạ như thế nào so với góc tới?","answers":["Bằng góc tới","Lớn hơn góc tới","Nhỏ hơn góc tới","Không liên quan"],"correct":0},
+  {"text":"Tia phản xạ nằm trong mặt phẳng nào?","answers":["Mặt phẳng chứa tia tới và pháp tuyến","Mặt phẳng bất kỳ","Mặt phẳng song song mặt gương","Mặt phẳng vuông góc với vật"],"correct":0},
+  {"text":"Gương phẳng phản xạ ánh sáng theo quy luật nào?","answers":["Định luật phản xạ ánh sáng","Định luật truyền nhiệt","Định luật bảo toàn khối lượng","Định luật Ôm"],"correct":0},
+  {"text":"Ảnh của vật tạo bởi gương phẳng là loại ảnh gì?","answers":["Ảnh ảo","Ảnh thật","Ảnh luôn nhỏ hơn vật","Ảnh luôn hứng được trên màn"],"correct":0},
+  {"text":"Ảnh tạo bởi gương phẳng có kích thước như thế nào so với vật?","answers":["Bằng vật","Lớn hơn vật","Nhỏ hơn vật","Không xác định"],"correct":0},
+  {"text":"Khoảng cách từ ảnh đến gương phẳng so với khoảng cách từ vật đến gương như thế nào?","answers":["Bằng nhau","Ảnh gần gương hơn","Ảnh xa gương gấp đôi","Không liên quan"],"correct":0},
+  {"text":"Vì sao ta nhìn thấy ảnh mình trong gương?","answers":["Do ánh sáng từ người phản xạ trên gương rồi truyền vào mắt","Do gương tự phát ra ảnh","Do mắt phát ra ánh sáng tạo ảnh","Do không khí tạo ảnh"],"correct":0},
+  {"text":"Bề mặt nào phản xạ ánh sáng tốt hơn?","answers":["Bề mặt nhẵn, sáng bóng","Bề mặt gồ ghề, tối","Bề mặt phủ vải đen","Bề mặt đất xốp"],"correct":0},
+  {"text":"Phản xạ trên mặt gương phẳng thường là loại phản xạ nào?","answers":["Phản xạ có hướng","Phản xạ khuếch tán hoàn toàn","Không có phản xạ","Phản xạ thành âm thanh"],"correct":0},
+  {"text":"Khi chiếu đèn pin vào gương, tia sáng bật ra gọi là gì?","answers":["Tia phản xạ","Tia tới","Pháp tuyến","Bóng tối"],"correct":0},
+  {"text":"Nếu góc tới là 30 độ thì góc phản xạ bằng bao nhiêu?","answers":["30 độ","60 độ","15 độ","90 độ"],"correct":0},
+  {"text":"Gương chiếu hậu của xe giúp người lái quan sát phía sau nhờ hiện tượng nào?","answers":["Phản xạ ánh sáng","Khúc xạ âm thanh","Bay hơi","Dẫn điện"],"correct":0},
+  {"text":"Trong sơ đồ phản xạ ánh sáng, điểm tia tới gặp gương gọi là gì?","answers":["Điểm tới","Tâm vật","Tiêu điểm nhiệt","Cực điện"],"correct":0}
 ]
