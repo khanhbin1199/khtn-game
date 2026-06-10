@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Physics Game</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hành trình Vật Lý</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <div class="game-box">
+
     <h1>Hành trình Vật Lý</h1>
 
-    <p id="progress">Bản đồ</p>
-    <p id="exp">EXP: 0 | Lượt trả lời: 2</p>
+    <div id="progress">Bản đồ</div>
 
-    <div id="map"></div>
+    <div id="exp">
+      Lv 1 | EXP: 0 | Cấp: 0/100 | Lượt trả lời: 2
+    </div>
+
+    <div class="map-wrapper">
+      <div id="map"></div>
+    </div>
 
     <h2 id="question">Chọn khu vực trên bản đồ</h2>
 
     <div id="answers"></div>
 
-    <p id="result"></p>
+    <div id="result"></div>
 
-    <button id="nextBtn" style="display:none;">Câu tiếp theo</button>
+    <button id="nextBtn" style="display:none;">
+      Câu tiếp theo
+    </button>
 
-    <h3>Túi đồ</h3>
+    <h2>Túi đồ</h2>
+
     <ul id="inventory"></ul>
+
   </div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
