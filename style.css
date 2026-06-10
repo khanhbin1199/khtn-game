@@ -3,12 +3,14 @@ body {
   background: #eef2f3;
   display: flex;
   justify-content: center;
-  padding-top: 40px;
+  padding-top: 30px;
+  margin: 0;
 }
 
 .game-box {
   background: white;
-  width: 1500px;
+  width: 95%;
+  max-width: 1700px;
   padding: 24px;
   border-radius: 12px;
   box-shadow: 0 0 10px #ccc;
@@ -16,45 +18,65 @@ body {
 
 h1 {
   text-align: center;
+  font-size: 54px;
+  margin-bottom: 20px;
+}
+
+#progress {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+#exp {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.map-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 2px solid #9cc;
+  border-radius: 14px;
+  margin: 20px 0;
+  background: white;
 }
 
 #map {
   position: relative;
-  width: 100%;
-  height: 800px;
+  width: 2400px;
+  height: 900px;
   background: linear-gradient(#dff3ff, #e8ffd8);
-  border: 2px solid #9cc;
-  border-radius: 14px;
-  margin: 20px 0;
   overflow: hidden;
 }
 
 .map-line {
   position: absolute;
-  height: 8px;
+  height: 10px;
   background: #aaa;
   transform-origin: left center;
   z-index: 1;
 }
 
 .map-line.line-unlocked {
-  background: #5cb85c;
+  background: #57b857;
 }
 
 .map-node {
   position: absolute;
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-  border: 4px solid #555;
+  border: 5px solid #555;
   cursor: pointer;
-  font-size: 28px;
+  font-size: 36px;
   font-weight: bold;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
+  transition: transform 0.2s;
 }
 
 .map-node:hover {
@@ -77,25 +99,31 @@ h1 {
 
 .player {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background: #4a90e2;
-  border: 4px solid white;
-  box-shadow: 0 0 8px #333;
+  border: 5px solid white;
+  box-shadow: 0 0 10px #333;
   transition: left 0.3s, top 0.3s;
   z-index: 3;
+}
+
+#question {
+  font-size: 48px;
+  margin-top: 30px;
 }
 
 button {
   display: block;
   width: 100%;
-  margin: 10px 0;
-  padding: 12px;
+  margin: 12px 0;
+  padding: 16px;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid #aaa;
   background: #f7f7f7;
+  font-size: 28px;
 }
 
 button:hover {
@@ -103,10 +131,17 @@ button:hover {
 }
 
 #result {
+  font-size: 28px;
   font-weight: bold;
   white-space: pre-line;
+  margin-top: 20px;
 }
 
 #inventory {
   min-height: 40px;
+  font-size: 28px;
+}
+
+#inventory li {
+  margin: 8px 0;
 }
