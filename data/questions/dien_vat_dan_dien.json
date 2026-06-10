@@ -1,32 +1,22 @@
 [
-  {
-    "text": "Dòng điện là gì?",
-    "answers": [
-      "Dòng chuyển dời có hướng của các điện tích",
-      "Dòng nước chảy trong ống",
-      "Sự truyền nhiệt qua dây dẫn",
-      "Ánh sáng phát ra từ bóng đèn"
-    ],
-    "correct": 0
-  },
-  {
-    "text": "Đơn vị của hiệu điện thế là gì?",
-    "answers": ["Ampe", "Vôn", "Oát", "Niutơn"],
-    "correct": 1
-  },
-  {
-    "text": "Dụng cụ nào dùng để đo cường độ dòng điện?",
-    "answers": ["Vôn kế", "Ampe kế", "Nhiệt kế", "Lực kế"],
-    "correct": 1
-  },
-  {
-    "text": "Vật nào dưới đây dẫn điện tốt?",
-    "answers": ["Cao su", "Nhựa", "Đồng", "Gỗ khô"],
-    "correct": 2
-  },
-  {
-    "text": "Kí hiệu của đơn vị điện trở là gì?",
-    "answers": ["A", "V", "Ω", "W"],
-    "correct": 2
-  }
+  {"text":"Vật dẫn điện là gì?","answers":["Vật cho dòng điện đi qua","Vật không cho ánh sáng đi qua","Vật không có khối lượng","Vật luôn phát sáng"],"correct":0},
+  {"text":"Vật cách điện là gì?","answers":["Vật không cho dòng điện đi qua hoặc cho đi qua rất kém","Vật dẫn điện rất tốt","Vật luôn nóng lên","Vật có màu đen"],"correct":0},
+  {"text":"Vật nào là vật dẫn điện tốt?","answers":["Đồng","Cao su","Nhựa","Sứ"],"correct":0},
+  {"text":"Vật nào là vật cách điện?","answers":["Nhựa","Bạc","Nhôm","Sắt"],"correct":0},
+  {"text":"Kim loại thường dẫn điện tốt vì có gì?","answers":["Electron tự do","Không có hạt mang điện","Chỉ có phân tử nước","Không có cấu tạo hạt"],"correct":0},
+  {"text":"Vì sao dây điện thường có lõi bằng đồng?","answers":["Vì đồng dẫn điện tốt","Vì đồng cách điện tốt","Vì đồng không có electron","Vì đồng là chất lỏng"],"correct":0},
+  {"text":"Vỏ dây điện thường làm bằng nhựa vì sao?","answers":["Nhựa cách điện, giúp an toàn khi sử dụng","Nhựa dẫn điện tốt","Nhựa làm tăng dòng điện","Nhựa hút điện tích khỏi dây"],"correct":0},
+  {"text":"Nước tinh khiết dẫn điện như thế nào so với nước có hòa tan muối?","answers":["Dẫn điện kém hơn","Dẫn điện tốt hơn rất nhiều","Dẫn điện như nhau tuyệt đối","Luôn không liên quan"],"correct":0},
+  {"text":"Dung dịch muối, axit, bazơ thường có tính chất điện nào?","answers":["Có thể dẫn điện","Luôn cách điện tuyệt đối","Không có hạt mang điện","Không chịu tác dụng điện"],"correct":0},
+  {"text":"Không khí khô ở điều kiện thường thường là gì?","answers":["Chất cách điện","Chất dẫn điện tốt","Kim loại","Dung dịch điện phân"],"correct":0},
+  {"text":"Vì sao không nên chạm tay ướt vào ổ điện?","answers":["Nước có tạp chất làm tăng khả năng dẫn điện, dễ nguy hiểm","Tay ướt làm điện biến mất","Nước luôn cách điện tuyệt đối","Ổ điện không hoạt động khi tay ướt"],"correct":0},
+  {"text":"Trong các vật sau, vật nào dẫn điện tốt nhất?","answers":["Bạc","Gỗ khô","Cao su","Thủy tinh"],"correct":0},
+  {"text":"Gỗ khô thường là vật gì?","answers":["Cách điện tương đối","Dẫn điện rất tốt","Nguồn điện","Nam châm điện"],"correct":0},
+  {"text":"Than chì có thể dẫn điện vì sao?","answers":["Trong cấu trúc có electron có thể chuyển động","Vì nó là chất lỏng","Vì nó không có hạt điện","Vì nó luôn nóng"],"correct":0},
+  {"text":"Sứ thường được dùng ở thiết bị điện vì lý do gì?","answers":["Cách điện tốt và chịu nhiệt tốt","Dẫn điện mạnh","Tạo ra dòng điện","Làm tăng hiệu điện thế"],"correct":0},
+  {"text":"Dây dẫn điện cần được bọc cách điện để làm gì?","answers":["Tránh điện giật và tránh chập mạch","Làm dây nặng hơn","Làm dòng điện biến mất","Làm dây phát sáng"],"correct":0},
+  {"text":"Nếu lớp vỏ cách điện của dây bị hở, cần làm gì?","answers":["Ngắt điện và sửa/thay dây trước khi dùng","Tiếp tục dùng bình thường","Chạm tay kiểm tra ngay","Đổ nước lên dây"],"correct":0},
+  {"text":"Chất dẫn điện và chất cách điện được phân biệt chủ yếu dựa vào gì?","answers":["Khả năng cho dòng điện đi qua","Màu sắc","Hình dạng","Khối lượng riêng duy nhất"],"correct":0},
+  {"text":"Trong mạch điện, công tắc thường có phần dẫn điện và phần cách điện nhằm mục đích gì?","answers":["Đóng ngắt mạch an toàn","Làm tăng trọng lượng công tắc","Làm mất nguồn điện","Tạo ra ánh sáng"],"correct":0},
+  {"text":"Vật dẫn điện có vai trò gì trong mạch điện?","answers":["Tạo đường đi cho dòng điện","Ngăn hoàn toàn dòng điện","Hấp thụ hết điện năng","Làm mạch luôn hở"],"correct":0}
 ]
