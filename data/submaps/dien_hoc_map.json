@@ -4,23 +4,41 @@
     "name": "Dòng điện",
     "x": 120,
     "y": 180,
+    "type": "lesson",
     "questionFile": "dien_dong_dien.json",
-    "unlockAfter": null
+    "unlockAfter": null,
+    "difficulty": "normal",
+    "chestType": "wood",
+    "rewardExp": 15,
+    "recommendedLevel": 2,
+    "theme": "electric"
   },
   {
     "id": "dien_2",
     "name": "Hiệu điện thế",
     "x": 520,
     "y": 360,
+    "type": "lesson",
     "questionFile": "dien_hieu_dien_the.json",
-    "unlockAfter": "dien_1"
+    "unlockAfter": "dien_1",
+    "difficulty": "normal",
+    "chestType": "iron",
+    "rewardExp": 20,
+    "recommendedLevel": 2,
+    "theme": "electric"
   },
   {
     "id": "dien_3",
     "name": "Vật dẫn điện",
     "x": 920,
     "y": 180,
+    "type": "lesson",
     "questionFile": "dien_vat_dan_dien.json",
-    "unlockAfter": "dien_2"
+    "unlockAfter": "dien_2",
+    "difficulty": "hard",
+    "chestType": "silver",
+    "rewardExp": 30,
+    "recommendedLevel": 3,
+    "theme": "electric"
   }
 ]
