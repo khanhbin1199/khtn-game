@@ -1,0 +1,26 @@
+[
+  {
+    "id": "dien_1",
+    "name": "Dòng điện",
+    "x": 120,
+    "y": 180,
+    "questionFile": "dien_dong_dien.json",
+    "unlockAfter": null
+  },
+  {
+    "id": "dien_2",
+    "name": "Hiệu điện thế",
+    "x": 520,
+    "y": 360,
+    "questionFile": "dien_hieu_dien_the.json",
+    "unlockAfter": "dien_1"
+  },
+  {
+    "id": "dien_3",
+    "name": "Vật dẫn điện",
+    "x": 920,
+    "y": 180,
+    "questionFile": "dien_vat_dan_dien.json",
+    "unlockAfter": "dien_2"
+  }
+]
