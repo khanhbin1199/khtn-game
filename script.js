@@ -25,32 +25,39 @@ let currentQuestions = [];
 
 let playerPosition = { x: 25, y: 250 };
 
-const chestRewards = [
-  { name: "Mảnh đồng", min: 1, max: 3 },
-  { name: "Bụi hỏa khí", min: 1, max: 3 },
-  { name: "Gỗ cứng", min: 1, max: 3 },
-  { name: "Đá thô", min: 1, max: 3 },
-
-  { name: "Tinh thạch nhỏ", min: 1, max: 2 },
-  { name: "Lông chim lửa", min: 1, max: 2 },
-  { name: "Tinh hoa băng", min: 1, max: 2 },
-  { name: "Mảnh điện tích", min: 1, max: 2 },
-
-  { name: "Tinh thạch lôi điện", min: 1, max: 1 },
-  { name: "Lõi năng lượng", min: 1, max: 1 },
-  { name: "Hạch băng", min: 1, max: 1 },
-  { name: "Hỏa ngọc", min: 1, max: 1 },
-
-  { name: "Mảnh thái dương", min: 1, max: 1 },
-  { name: "Lõi hư không", min: 1, max: 1 },
-  { name: "Tinh tú cổ đại", min: 1, max: 1 },
-  { name: "Huyết tinh long tộc", min: 1, max: 1 },
-
-  { name: "Tinh hạch thần vực", min: 1, max: 1 },
-  { name: "Mảnh linh hồn cổ", min: 1, max: 1 },
-  { name: "Tinh thể lượng tử", min: 1, max: 1 },
-  { name: "Trái tim nguyên tố", min: 1, max: 1 }
-];
+const chestTables = {
+  wood: [
+    { name: "Mảnh đồng", min: 1, max: 3 },
+    { name: "Bụi hỏa khí", min: 1, max: 3 },
+    { name: "Gỗ cứng", min: 1, max: 2 },
+    { name: "Đá thô", min: 1, max: 2 }
+  ],
+  iron: [
+    { name: "Mảnh đồng", min: 2, max: 4 },
+    { name: "Tinh thạch nhỏ", min: 1, max: 2 },
+    { name: "Mảnh điện tích", min: 1, max: 2 },
+    { name: "Lông chim lửa", min: 1, max: 1 }
+  ],
+  silver: [
+    { name: "Tinh thạch nhỏ", min: 2, max: 3 },
+    { name: "Tinh thạch lôi điện", min: 1, max: 1 },
+    { name: "Lõi năng lượng", min: 1, max: 1 },
+    { name: "Hạch băng", min: 1, max: 1 },
+    { name: "Hỏa ngọc", min: 1, max: 1 }
+  ],
+  gold: [
+    { name: "Mảnh thái dương", min: 1, max: 1 },
+    { name: "Lõi hư không", min: 1, max: 1 },
+    { name: "Tinh tú cổ đại", min: 1, max: 1 },
+    { name: "Huyết tinh long tộc", min: 1, max: 1 }
+  ],
+  legend: [
+    { name: "Tinh hạch thần vực", min: 1, max: 1 },
+    { name: "Mảnh linh hồn cổ", min: 1, max: 1 },
+    { name: "Tinh thể lượng tử", min: 1, max: 1 },
+    { name: "Trái tim nguyên tố", min: 1, max: 1 }
+  ]
+};
 
 const shopItems = [
   { name: "Mảnh đồng", rarity: "Thường", buyPrice: 10, sellPrice: 5, unlockLevel: 1 },
@@ -106,6 +113,8 @@ const craftingRecipes = [
   { name: "Thần Khí Nguyên Tố", rarity: "Thần Thoại", damage: 120, successRate: 15, materials: { "Nhật Diệu Thần Kiếm": 1, "Trượng Hư Không": 1, "Thần Cung Tinh Tú": 1, "Trái tim nguyên tố": 1 } }
 ];
 
+loadWorldMap();
+
 async function loadWorldMap() {
   const response = await fetch("data/map.json");
   worldMapNodes = await response.json();
@@ -144,6 +153,7 @@ function renderMap(titleText) {
   document.getElementById("question").innerText = currentRegion
     ? `Khu vực: ${currentRegion.name}`
     : "Chọn khu vực trên bản đồ";
+
   document.getElementById("result").innerText = "";
   document.getElementById("nextBtn").style.display = "none";
 
@@ -170,6 +180,11 @@ function renderMap(titleText) {
       if (!isUnlocked(node)) {
         document.getElementById("result").innerText = "Khu vực này chưa mở khóa.";
         return;
+      }
+
+      if (node.recommendedLevel && level < node.recommendedLevel) {
+        document.getElementById("result").innerText =
+          `Khuyến nghị đạt Lv ${node.recommendedLevel} trước khi vào node này.`;
       }
 
       movePlayerTo(node);
@@ -268,7 +283,9 @@ function movePlayerTo(node) {
     player.style.left = playerPosition.x + "px";
     player.style.top = playerPosition.y + "px";
   }
-}async function startQuestionNode(node) {
+}
+
+async function startQuestionNode(node) {
   currentNode = node;
 
   const response = await fetch(`data/questions/${node.questionFile}`);
@@ -342,7 +359,7 @@ function answerQuestion(index) {
   } else {
     document.getElementById("result").innerText =
       attemptsLeft > 0 ? `Sai rồi. Còn ${attemptsLeft} lượt.` : "Sai rồi. Bạn đã hết lượt.";
-    
+
     if (attemptsLeft <= 0) {
       showBuyRetryButton();
     }
@@ -421,6 +438,14 @@ function finishQuestionGroup() {
     completedNodes.push(currentNode.id);
   }
 
+  const nodeRewardExp = currentNode.rewardExp || 0;
+
+  if (nodeRewardExp > 0) {
+    exp += nodeRewardExp;
+    levelExp += nodeRewardExp;
+    checkLevelUp();
+  }
+
   checkRegionComplete();
   saveGame();
 
@@ -430,10 +455,14 @@ function finishQuestionGroup() {
 
   document.getElementById("answers").innerHTML = "";
   document.getElementById("nextBtn").style.display = "none";
+
   document.getElementById("result").innerText =
-    "Bạn nhận được một rương thưởng!";
+    nodeRewardExp > 0
+      ? `Hoàn thành node! Nhận thêm ${nodeRewardExp} EXP và một rương thưởng!`
+      : "Bạn nhận được một rương thưởng!";
 
   showChestButton();
+  updateUI();
 }
 
 function checkRegionComplete() {
@@ -452,7 +481,7 @@ function showChestButton() {
   const answersDiv = document.getElementById("answers");
 
   const openChestButton = document.createElement("button");
-  openChestButton.innerText = "🎁 Mở rương thưởng";
+  openChestButton.innerText = `🎁 Mở ${getChestName(currentNode.chestType || "wood")}`;
 
   openChestButton.onclick = function () {
     openChestButton.remove();
@@ -463,7 +492,7 @@ function showChestButton() {
 }
 
 function openChest() {
-  const rewards = generateChestRewards();
+  const rewards = generateChestRewards(currentNode.chestType || "wood");
 
   rewards.forEach(reward => {
     addItemToInventory(reward.name, reward.quantity);
@@ -477,7 +506,7 @@ function openChest() {
     .join("\n");
 
   document.getElementById("result").innerText =
-    `✨ Bạn nhận được:\n${rewardText}`;
+    `✨ Bạn mở ${getChestName(currentNode.chestType || "wood")} và nhận được:\n${rewardText}`;
 
   const backButton = document.createElement("button");
   backButton.innerText = currentRegion ? "Quay lại map khu vực" : "Quay lại bản đồ";
@@ -490,12 +519,13 @@ function openChest() {
   document.getElementById("answers").appendChild(backButton);
 }
 
-function generateChestRewards() {
+function generateChestRewards(chestType) {
+  const table = chestTables[chestType] || chestTables.wood;
   const rewardCount = randomNumber(1, 3);
   const rewards = [];
 
   for (let i = 0; i < rewardCount; i++) {
-    const item = chestRewards[Math.floor(Math.random() * chestRewards.length)];
+    const item = table[Math.floor(Math.random() * table.length)];
     const quantity = randomNumber(item.min, item.max);
 
     const existingReward = rewards.find(reward => reward.name === item.name);
@@ -508,6 +538,15 @@ function generateChestRewards() {
   }
 
   return rewards;
+}
+
+function getChestName(chestType) {
+  if (chestType === "wood") return "Rương Gỗ";
+  if (chestType === "iron") return "Rương Sắt";
+  if (chestType === "silver") return "Rương Bạc";
+  if (chestType === "gold") return "Rương Vàng";
+  if (chestType === "legend") return "Rương Huyền Bí";
+  return "Rương Gỗ";
 }
 
 function showShopPanel() {
@@ -856,5 +895,3 @@ function saveGame() {
   localStorage.setItem("weapons", JSON.stringify(weapons));
   localStorage.setItem("completedNodes", JSON.stringify(completedNodes));
 }
-
-loadWorldMap();
