@@ -1,52 +1,22 @@
 [
-  {
-    "text": "Nguồn sáng là gì?",
-    "answers": ["Vật tự phát ra ánh sáng", "Vật phản chiếu ánh sáng", "Vật hấp thụ ánh sáng", "Vật cản ánh sáng"],
-    "correct": 0
-  },
-  {
-    "text": "Trong môi trường trong suốt và đồng tính, ánh sáng truyền theo đường nào?",
-    "answers": ["Đường cong", "Đường gấp khúc", "Đường thẳng", "Đường xoắn"],
-    "correct": 2
-  },
-  {
-    "text": "Hiện tượng nhìn thấy ảnh của mình trong gương là do gì?",
-    "answers": ["Khúc xạ ánh sáng", "Tán sắc ánh sáng", "Phản xạ ánh sáng", "Hấp thụ ánh sáng"],
-    "correct": 2
-  },
-  {
-    "text": "Ảnh tạo bởi gương phẳng có tính chất nào?",
-    "answers": ["Ảnh thật, nhỏ hơn vật", "Ảnh ảo, lớn hơn vật", "Ảnh ảo, bằng vật", "Ảnh thật, bằng vật"],
-    "correct": 2
-  },
-  {
-    "text": "Khi ánh sáng gặp gương phẳng thì xảy ra hiện tượng gì?",
-    "answers": ["Khúc xạ", "Phản xạ", "Tán sắc", "Hấp thụ hoàn toàn"],
-    "correct": 1
-  },
-  {
-    "text": "Vật nào dưới đây không phải nguồn sáng?",
-    "answers": ["Mặt Trời", "Ngọn nến đang cháy", "Bóng đèn đang sáng", "Mặt Trăng"],
-    "correct": 3
-  },
-  {
-    "text": "Tia phản xạ nằm trong mặt phẳng nào?",
-    "answers": ["Mặt phẳng chứa tia tới và pháp tuyến", "Mặt phẳng chứa gương", "Mặt phẳng vuông góc gương", "Mặt phẳng bất kỳ"],
-    "correct": 0
-  },
-  {
-    "text": "Góc phản xạ có quan hệ như thế nào với góc tới?",
-    "answers": ["Lớn hơn góc tới", "Nhỏ hơn góc tới", "Bằng góc tới", "Không liên quan"],
-    "correct": 2
-  },
-  {
-    "text": "Kính lúp hoạt động dựa trên hiện tượng nào?",
-    "answers": ["Phản xạ ánh sáng", "Khúc xạ ánh sáng", "Tán sắc ánh sáng", "Phát sáng"],
-    "correct": 1
-  },
-  {
-    "text": "Vì sao ta nhìn thấy vật?",
-    "answers": ["Vật tự phát sáng", "Có ánh sáng từ vật truyền vào mắt", "Mắt phát ra ánh sáng", "Không cần ánh sáng"],
-    "correct": 1
-  }
+  {"text":"Kính lúp dùng để làm gì?","answers":["Quan sát các vật nhỏ","Đo khối lượng","Đo nhiệt độ","Đo cường độ dòng điện"],"correct":0},
+  {"text":"Kính lúp là loại thấu kính gì?","answers":["Thấu kính hội tụ","Thấu kính phân kì","Gương phẳng","Gương cầu lồi"],"correct":0},
+  {"text":"Kính lúp giúp ảnh của vật trông như thế nào?","answers":["Lớn hơn vật","Nhỏ hơn vật","Tối hơn vật","Xa hơn vật"],"correct":0},
+  {"text":"Khi dùng kính lúp, nên đặt vật ở đâu?","answers":["Gần kính lúp","Rất xa kính lúp","Sau mắt người quan sát","Sau nguồn sáng"],"correct":0},
+  {"text":"Kính lúp hoạt động chủ yếu dựa trên hiện tượng nào?","answers":["Khúc xạ ánh sáng","Phản xạ ánh sáng","Dẫn nhiệt","Nhiễm điện do cọ xát"],"correct":0},
+  {"text":"Dụng cụ nào phù hợp để quan sát cánh côn trùng nhỏ?","answers":["Kính lúp","Lực kế","Vôn kế","Nhiệt kế"],"correct":0},
+  {"text":"Người thợ sửa đồng hồ thường dùng kính lúp để làm gì?","answers":["Quan sát các chi tiết rất nhỏ","Đo nhiệt độ đồng hồ","Tạo ra dòng điện","Làm đồng hồ nặng hơn"],"correct":0},
+  {"text":"Khi quan sát bằng kính lúp, mắt cần nhìn qua bộ phận nào?","answers":["Mặt kính","Tay cầm","Vỏ kính","Hộp đựng kính"],"correct":0},
+  {"text":"Để bảo quản kính lúp, nên làm gì?","answers":["Lau kính bằng khăn mềm và cất trong hộp","Chà kính bằng giấy nhám","Để kính dưới vật nặng","Ngâm kính trong nước bẩn"],"correct":0},
+  {"text":"Không nên làm gì với mặt kính của kính lúp?","answers":["Dùng vật cứng cào xước mặt kính","Lau nhẹ bằng khăn mềm","Cất vào hộp sau khi dùng","Cầm vào tay cầm"],"correct":0},
+  {"text":"Kính lúp thường có bộ phận nào để cầm khi sử dụng?","answers":["Tay cầm hoặc giá đỡ","Kim chỉ thị","Dây điện","Ống thủy ngân"],"correct":0},
+  {"text":"Khi dùng kính lúp quan sát chữ nhỏ, chữ nhìn thấy thường thế nào?","answers":["To hơn và dễ đọc hơn","Nhỏ hơn","Biến mất","Luôn bị lộn ngược không nhìn được"],"correct":0},
+  {"text":"Kính lúp có thể được dùng trong lĩnh vực nào?","answers":["Học tập, sửa chữa, nghiên cứu mẫu vật nhỏ","Chỉ dùng để đo lực","Chỉ dùng để đo điện trở","Chỉ dùng để đun nóng nước"],"correct":0},
+  {"text":"Nếu mặt kính lúp bị bẩn, ảnh quan sát sẽ thế nào?","answers":["Có thể mờ và khó nhìn","Luôn rõ hơn","To hơn nhiều lần","Không bị ảnh hưởng"],"correct":0},
+  {"text":"Kính lúp thường được dùng trong môn KHTN để quan sát gì?","answers":["Mẫu vật nhỏ như lá, côn trùng, hạt","Các hành tinh xa như kính thiên văn","Dòng điện trong dây","Nhiệt độ của nước"],"correct":0},
+  {"text":"Khi dùng kính lúp dưới ánh nắng mạnh, cần chú ý điều gì?","answers":["Không hội tụ ánh sáng vào mắt hoặc vật dễ cháy","Đưa kính sát mắt trời","Chiếu ánh sáng vào giấy thật lâu","Nhìn trực tiếp vào Mặt Trời qua kính"],"correct":0},
+  {"text":"Vì sao không được nhìn trực tiếp Mặt Trời qua kính lúp?","answers":["Vì có thể gây hại cho mắt","Vì kính lúp làm mất ánh sáng","Vì Mặt Trời không phát sáng","Vì kính lúp không cho ánh sáng đi qua"],"correct":0},
+  {"text":"Kính lúp phù hợp nhất với vật có kích thước như thế nào?","answers":["Nhỏ, khó quan sát bằng mắt thường","Rất lớn như tòa nhà","Đang chuyển động rất nhanh trên đường","Ở rất xa ngoài không gian"],"correct":0},
+  {"text":"Khi di chuyển kính lúp gần hoặc xa vật, mục đích thường là gì?","answers":["Tìm vị trí nhìn rõ ảnh","Làm vật nặng hơn","Làm vật phát sáng","Đổi màu vật"],"correct":0},
+  {"text":"Kính lúp trong phòng thí nghiệm cần được dùng như thế nào?","answers":["Cẩn thận, tránh rơi vỡ và trầy xước","Ném thử để kiểm tra độ bền","Dùng thay búa","Đặt dưới chân bàn"],"correct":0}
 ]
