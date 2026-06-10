@@ -1,0 +1,32 @@
+[
+  {
+    "text": "Dòng điện là gì?",
+    "answers": [
+      "Dòng chuyển dời có hướng của các điện tích",
+      "Dòng nước chảy trong ống",
+      "Sự truyền nhiệt qua dây dẫn",
+      "Ánh sáng phát ra từ bóng đèn"
+    ],
+    "correct": 0
+  },
+  {
+    "text": "Đơn vị của hiệu điện thế là gì?",
+    "answers": ["Ampe", "Vôn", "Oát", "Niutơn"],
+    "correct": 1
+  },
+  {
+    "text": "Dụng cụ nào dùng để đo cường độ dòng điện?",
+    "answers": ["Vôn kế", "Ampe kế", "Nhiệt kế", "Lực kế"],
+    "correct": 1
+  },
+  {
+    "text": "Vật nào dưới đây dẫn điện tốt?",
+    "answers": ["Cao su", "Nhựa", "Đồng", "Gỗ khô"],
+    "correct": 2
+  },
+  {
+    "text": "Kí hiệu của đơn vị điện trở là gì?",
+    "answers": ["A", "V", "Ω", "W"],
+    "correct": 2
+  }
+]
