@@ -30,6 +30,11 @@ let currentQuestions = [];
 
 let currentBoss = null;
 
+let knowledgeQuestions = [];
+let knowledgeQuestionIndex = 0;
+let knowledgeCorrectCount = 0;
+let currentKnowledgeBuff = null;
+
 let playerPosition = { x: 25, y: 250 };
 
 const chestTables = {
@@ -131,6 +136,7 @@ async function loadWorldMap() {
   currentNode = null;
   currentQuestions = [];
   currentBoss = null;
+  currentKnowledgeBuff = null;
   playerPosition = { x: 25, y: 250 };
 
   renderMap("Bản đồ thế giới");
@@ -146,6 +152,7 @@ async function loadSubMap(regionNode) {
   currentNode = null;
   currentQuestions = [];
   currentBoss = null;
+  currentKnowledgeBuff = null;
   playerPosition = { x: 25, y: 250 };
 
   renderMap(`Khu vực: ${regionNode.name}`);
@@ -208,7 +215,7 @@ function renderMap(titleText) {
         if (node.type === "region") {
           await loadSubMap(node);
         } else if (node.type === "boss") {
-          startBossBattle(node);
+          await startBossNode(node);
         } else {
           await startQuestionNode(node);
         }
@@ -582,9 +589,163 @@ function getChestName(chestType) {
   return "Rương Gỗ";
 }
 
-function startBossBattle(node) {
+async function startBossNode(node) {
   currentNode = node;
 
+  if (node.knowledgeQuiz === false) {
+    startBossBattle(node);
+    return;
+  }
+
+  await startKnowledgeQuiz(node);
+}
+
+async function startKnowledgeQuiz(node) {
+  const questionFile = getKnowledgeQuestionFile(node);
+
+  if (!questionFile) {
+    startBossBattle(node);
+    return;
+  }
+
+  const response = await fetch(`data/questions/${questionFile}`);
+  const allQuestions = await response.json();
+
+  const quizCount = node.knowledgeQuestionCount || 3;
+
+  knowledgeQuestions = getRandomQuestions(allQuestions, quizCount);
+  knowledgeQuestionIndex = 0;
+  knowledgeCorrectCount = 0;
+
+  document.getElementById("map").style.display = "none";
+
+  renderKnowledgeQuestion();
+}
+
+function getKnowledgeQuestionFile(node) {
+  if (node.knowledgeQuestionFile) {
+    return node.knowledgeQuestionFile;
+  }
+
+  const lessonNodes = currentMapNodes.filter(item =>
+    item.type !== "boss" && item.questionFile
+  );
+
+  if (lessonNodes.length === 0) return null;
+
+  const randomLesson = lessonNodes[Math.floor(Math.random() * lessonNodes.length)];
+
+  return randomLesson.questionFile;
+}
+
+function renderKnowledgeQuestion() {
+  const question = knowledgeQuestions[knowledgeQuestionIndex];
+
+  document.getElementById("progress").innerText =
+    `📚 Kiểm tra kiến thức ${knowledgeQuestionIndex + 1}/${knowledgeQuestions.length}`;
+
+  document.getElementById("question").innerText = question.text;
+  document.getElementById("result").innerText = "";
+  document.getElementById("nextBtn").style.display = "none";
+
+  const answersDiv = document.getElementById("answers");
+  answersDiv.innerHTML = "";
+
+  question.answers.forEach((answer, index) => {
+    const button = document.createElement("button");
+    button.innerText = answer;
+
+    button.onclick = function () {
+      answerKnowledgeQuestion(index);
+    };
+
+    answersDiv.appendChild(button);
+  });
+
+  updateUI();
+  updateEquippedWeaponUI();
+}
+
+function answerKnowledgeQuestion(index) {
+  const question = knowledgeQuestions[knowledgeQuestionIndex];
+
+  if (index === question.correct) {
+    knowledgeCorrectCount++;
+    document.getElementById("result").innerText = "Đúng! Nhận điểm kiến thức.";
+  } else {
+    document.getElementById("result").innerText = "Sai rồi.";
+  }
+
+  const answersDiv = document.getElementById("answers");
+  answersDiv.innerHTML = "";
+
+  const nextButton = document.createElement("button");
+
+  if (knowledgeQuestionIndex >= knowledgeQuestions.length - 1) {
+    nextButton.innerText = "Bắt đầu đánh boss";
+  } else {
+    nextButton.innerText = "Câu tiếp theo";
+  }
+
+  nextButton.onclick = function () {
+    knowledgeQuestionIndex++;
+
+    if (knowledgeQuestionIndex >= knowledgeQuestions.length) {
+      applyKnowledgeBuff();
+      startBossBattle(currentNode);
+    } else {
+      renderKnowledgeQuestion();
+    }
+  };
+
+  answersDiv.appendChild(nextButton);
+}
+
+function applyKnowledgeBuff() {
+  const total = knowledgeQuestions.length;
+  const correct = knowledgeCorrectCount;
+
+  currentKnowledgeBuff = {
+    damageMultiplier: 1,
+    shieldReduction: 0,
+    shieldTurns: 0,
+    stunFirstTurn: false,
+    healAmount: 0,
+    text: "Không có buff"
+  };
+
+  if (correct <= 1) {
+    currentKnowledgeBuff.text = `Đúng ${correct}/${total}: Không có buff.`;
+    return;
+  }
+
+  if (correct < total) {
+    currentKnowledgeBuff.damageMultiplier = 1.2;
+    currentKnowledgeBuff.shieldReduction = 0.25;
+    currentKnowledgeBuff.shieldTurns = 2;
+    currentKnowledgeBuff.text =
+      `Đúng ${correct}/${total}: +20% sát thương, giảm 25% sát thương boss trong 2 lượt.`;
+    return;
+  }
+
+  currentKnowledgeBuff.damageMultiplier = 1.5;
+  currentKnowledgeBuff.shieldReduction = 0.5;
+  currentKnowledgeBuff.shieldTurns = 3;
+  currentKnowledgeBuff.stunFirstTurn = true;
+  currentKnowledgeBuff.healAmount = 20;
+  currentKnowledgeBuff.text =
+    `Perfect ${correct}/${total}: +50% sát thương, choáng boss lượt đầu, giảm 50% sát thương boss trong 3 lượt, hồi 20 HP.`;
+
+  playerHp += currentKnowledgeBuff.healAmount;
+
+  if (playerHp > maxPlayerHp) {
+    playerHp = maxPlayerHp;
+  }
+
+  saveGame();
+}
+
+function startBossBattle(node) {
   const bossMaxHp = node.bossHp || 100;
 
   currentBoss = {
@@ -594,7 +755,8 @@ function startBossBattle(node) {
     maxHp: bossMaxHp,
     damage: node.bossDamage || 10,
     rewardChest: node.rewardChest || node.chestType || "gold",
-    rewardExp: node.rewardExp || 50
+    rewardExp: node.rewardExp || 50,
+    stunned: currentKnowledgeBuff ? currentKnowledgeBuff.stunFirstTurn : false
   };
 
   document.getElementById("map").style.display = "none";
@@ -623,7 +785,9 @@ function renderBossBattle() {
     `Boss HP: ${currentBoss.hp}/${currentBoss.maxHp}\n` +
     `Boss Damage: ${currentBoss.damage}\n` +
     `Vũ khí đang dùng: ${getEquippedWeaponText()}\n` +
-    `Sát thương của bạn: ${getEquippedDamage()}`;
+    `Sát thương cơ bản: ${getEquippedDamage()}\n` +
+    `Buff kiến thức: ${getKnowledgeBuffText()}\n` +
+    `Sát thương hiện tại: ${getBuffedDamage()}`;
 
   answersDiv.appendChild(bossInfo);
 
@@ -636,12 +800,37 @@ function renderBossBattle() {
   backButton.innerText = currentRegion ? "Rút lui về map khu vực" : "Rút lui về bản đồ";
   backButton.onclick = function () {
     currentBoss = null;
+    currentKnowledgeBuff = null;
     renderMap(currentRegion ? `Khu vực: ${currentRegion.name}` : "Bản đồ thế giới");
   };
   answersDiv.appendChild(backButton);
 
   updateUI();
   updateEquippedWeaponUI();
+}
+
+function getKnowledgeBuffText() {
+  if (!currentKnowledgeBuff) return "Không có buff";
+  return currentKnowledgeBuff.text;
+}
+
+function getBuffedDamage() {
+  const baseDamage = getEquippedDamage();
+
+  if (!currentKnowledgeBuff) return baseDamage;
+
+  return Math.max(1, Math.floor(baseDamage * currentKnowledgeBuff.damageMultiplier));
+}
+
+function getReducedBossDamage() {
+  let bossDamage = currentBoss.damage;
+
+  if (currentKnowledgeBuff && currentKnowledgeBuff.shieldTurns > 0) {
+    bossDamage = Math.floor(bossDamage * (1 - currentKnowledgeBuff.shieldReduction));
+    currentKnowledgeBuff.shieldTurns--;
+  }
+
+  return Math.max(0, bossDamage);
 }
 
 function playerAttackBoss() {
@@ -653,7 +842,7 @@ function playerAttackBoss() {
     return;
   }
 
-  const damage = getEquippedDamage();
+  const damage = getBuffedDamage();
 
   currentBoss.hp -= damage;
 
@@ -663,14 +852,27 @@ function playerAttackBoss() {
     return;
   }
 
-  playerHp -= currentBoss.damage;
+  if (currentBoss.stunned) {
+    currentBoss.stunned = false;
+    saveGame();
+
+    document.getElementById("result").innerText =
+      `Bạn gây ${damage} sát thương.\nBoss bị choáng nên không phản đòn.`;
+
+    renderBossBattle();
+    return;
+  }
+
+  const bossDamage = getReducedBossDamage();
+
+  playerHp -= bossDamage;
 
   if (playerHp <= 0) {
     playerHp = 0;
     saveGame();
 
     document.getElementById("result").innerText =
-      `Bạn gây ${damage} sát thương.\n${currentBoss.name} phản đòn ${currentBoss.damage} sát thương.\nBạn đã thua trận.`;
+      `Bạn gây ${damage} sát thương.\n${currentBoss.name} phản đòn ${bossDamage} sát thương.\nBạn đã thua trận.`;
 
     renderBossBattle();
     return;
@@ -679,7 +881,7 @@ function playerAttackBoss() {
   saveGame();
 
   document.getElementById("result").innerText =
-    `Bạn gây ${damage} sát thương.\n${currentBoss.name} phản đòn ${currentBoss.damage} sát thương.`;
+    `Bạn gây ${damage} sát thương.\n${currentBoss.name} phản đòn ${bossDamage} sát thương.`;
 
   renderBossBattle();
 }
@@ -705,13 +907,16 @@ function winBossBattle() {
   document.getElementById("result").innerText =
     `Bạn nhận ${currentBoss.rewardExp} EXP và một ${getChestName(currentBoss.rewardChest)}!`;
 
+  const bossChest = currentBoss.rewardChest;
+
   const openBossChestButton = document.createElement("button");
-  openBossChestButton.innerText = `🎁 Mở ${getChestName(currentBoss.rewardChest)}`;
+  openBossChestButton.innerText = `🎁 Mở ${getChestName(bossChest)}`;
 
   openBossChestButton.onclick = function () {
     openBossChestButton.remove();
-    openChest(currentBoss.rewardChest);
+    openChest(bossChest);
     currentBoss = null;
+    currentKnowledgeBuff = null;
   };
 
   document.getElementById("answers").appendChild(openBossChestButton);
