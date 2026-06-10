@@ -1,56 +1,22 @@
 [
-  {
-    "text": "Lực là gì?",
-    "answers": [
-      "Tác dụng đẩy hoặc kéo",
-      "Khối lượng",
-      "Nhiệt độ",
-      "Thể tích"
-    ],
-    "correct": 0
-  },
-
-  {
-    "text": "Đơn vị của lực là gì?",
-    "answers": [
-      "Mét",
-      "Niutơn",
-      "Kilôgam",
-      "Giây"
-    ],
-    "correct": 1
-  },
-
-  {
-    "text": "Trọng lực có chiều như thế nào?",
-    "answers": [
-      "Từ dưới lên",
-      "Từ trái sang phải",
-      "Từ trên xuống",
-      "Không xác định"
-    ],
-    "correct": 2
-  },
-
-  {
-    "text": "Lực đàn hồi xuất hiện khi nào?",
-    "answers": [
-      "Khi vật bị biến dạng",
-      "Khi vật nóng lên",
-      "Khi vật tan chảy",
-      "Khi vật đổi màu"
-    ],
-    "correct": 0
-  },
-
-  {
-    "text": "Ma sát xuất hiện khi nào?",
-    "answers": [
-      "Khi các bề mặt tiếp xúc và cản trở chuyển động",
-      "Khi không có lực",
-      "Khi vật ở trong chân không",
-      "Khi vật không có khối lượng"
-    ],
-    "correct": 0
-  }
+  {"text":"Lực là gì?","answers":["Tác dụng đẩy hoặc kéo của vật này lên vật khác","Một dạng ánh sáng","Một loại nhiệt năng","Một loại chất lỏng"],"correct":0},
+  {"text":"Khi hai vật tác dụng lực lên nhau, kết quả có thể là gì?","answers":["Làm vật biến dạng hoặc thay đổi chuyển động","Làm vật biến mất","Làm vật mất khối lượng","Không có hiện tượng gì"],"correct":0},
+  {"text":"Đơn vị của lực là gì?","answers":["Niutơn","Kilôgam","Mét","Jun"],"correct":0},
+  {"text":"Kí hiệu đơn vị lực là gì?","answers":["N","kg","m","J"],"correct":0},
+  {"text":"Dụng cụ dùng để đo lực là gì?","answers":["Lực kế","Nhiệt kế","Vôn kế","Ampe kế"],"correct":0},
+  {"text":"Khi kéo một chiếc xe đồ chơi, em đã tác dụng lực gì lên xe?","answers":["Lực kéo","Lực ma sát","Lực đàn hồi","Trọng lực"],"correct":0},
+  {"text":"Khi đá quả bóng, điều gì xảy ra với quả bóng?","answers":["Quả bóng thay đổi chuyển động","Quả bóng biến mất","Quả bóng mất trọng lượng","Không có gì thay đổi"],"correct":0},
+  {"text":"Lực có thể làm vật đang đứng yên như thế nào?","answers":["Làm vật chuyển động","Làm vật biến mất","Làm vật nhẹ đi","Không thay đổi gì"],"correct":0},
+  {"text":"Lực có thể làm vật đang chuyển động như thế nào?","answers":["Đổi hướng hoặc đổi tốc độ","Biến thành chất lỏng","Mất khối lượng","Không thể thay đổi"],"correct":0},
+  {"text":"Một vật bị biến dạng khi nào?","answers":["Khi có lực tác dụng làm thay đổi hình dạng","Khi vật đứng yên","Khi không có lực","Khi vật đổi màu"],"correct":0},
+  {"text":"Ví dụ nào sau đây cho thấy lực làm vật biến dạng?","answers":["Bóp quả bóng cao su","Đèn phát sáng","Nước sôi","Giấy đổi màu"],"correct":0},
+  {"text":"Ví dụ nào sau đây cho thấy lực làm vật đổi hướng chuyển động?","answers":["Thủ môn bắt bóng","Đá làm nước sôi","Nam châm hút giấy","Đèn pin phát sáng"],"correct":0},
+  {"text":"Lực tác dụng lên vật có thể xảy ra khi nào?","answers":["Khi các vật tiếp xúc hoặc tác dụng từ xa","Chỉ khi vật nóng","Chỉ khi có ánh sáng","Chỉ khi có nước"],"correct":0},
+  {"text":"Nam châm hút đinh sắt là ví dụ của loại lực nào?","answers":["Lực từ","Lực kéo","Lực đàn hồi","Lực ma sát"],"correct":0},
+  {"text":"Trái Đất hút mọi vật về phía mình nhờ lực gì?","answers":["Trọng lực","Lực điện","Lực ma sát","Lực đàn hồi"],"correct":0},
+  {"text":"Nếu không có lực tác dụng, vật đang đứng yên sẽ thường thế nào?","answers":["Tiếp tục đứng yên","Tự tăng tốc","Tự phát sáng","Tự biến dạng"],"correct":0},
+  {"text":"Khi dùng tay nén lò xo, tay đã tác dụng lực gì?","answers":["Lực đẩy","Lực hút","Lực từ","Lực điện"],"correct":0},
+  {"text":"Khi dùng dây kéo xô nước từ giếng lên, dây tác dụng lực gì lên xô?","answers":["Lực kéo","Lực ma sát","Lực đàn hồi","Lực điện"],"correct":0},
+  {"text":"Trong các trường hợp sau, trường hợp nào có lực tác dụng từ xa?","answers":["Nam châm hút ghim sắt","Tay bóp đất nặn","Chân đá bóng","Tay kéo xe"],"correct":0},
+  {"text":"Kết quả cơ bản của tác dụng lực lên vật là gì?","answers":["Làm vật biến dạng hoặc thay đổi chuyển động","Làm vật tự phát sáng","Làm vật đổi màu","Làm vật biến mất"],"correct":0}
 ]
