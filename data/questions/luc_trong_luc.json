@@ -1,56 +1,22 @@
 [
-  {
-    "text": "Lực là gì?",
-    "answers": [
-      "Tác dụng đẩy hoặc kéo",
-      "Khối lượng",
-      "Nhiệt độ",
-      "Thể tích"
-    ],
-    "correct": 0
-  },
-
-  {
-    "text": "Đơn vị của lực là gì?",
-    "answers": [
-      "Mét",
-      "Niutơn",
-      "Kilôgam",
-      "Giây"
-    ],
-    "correct": 1
-  },
-
-  {
-    "text": "Trọng lực có chiều như thế nào?",
-    "answers": [
-      "Từ dưới lên",
-      "Từ trái sang phải",
-      "Từ trên xuống",
-      "Không xác định"
-    ],
-    "correct": 2
-  },
-
-  {
-    "text": "Lực đàn hồi xuất hiện khi nào?",
-    "answers": [
-      "Khi vật bị biến dạng",
-      "Khi vật nóng lên",
-      "Khi vật tan chảy",
-      "Khi vật đổi màu"
-    ],
-    "correct": 0
-  },
-
-  {
-    "text": "Ma sát xuất hiện khi nào?",
-    "answers": [
-      "Khi các bề mặt tiếp xúc và cản trở chuyển động",
-      "Khi không có lực",
-      "Khi vật ở trong chân không",
-      "Khi vật không có khối lượng"
-    ],
-    "correct": 0
-  }
+  {"text":"Trọng lực là gì?","answers":["Lực hút của Trái Đất tác dụng lên vật","Lực do nam châm tạo ra","Lực do dòng điện sinh ra","Lực làm vật phát sáng"],"correct":0},
+  {"text":"Trọng lực có phương như thế nào?","answers":["Thẳng đứng","Nằm ngang","Xiên góc bất kỳ","Không có phương"],"correct":0},
+  {"text":"Trọng lực có chiều như thế nào?","answers":["Hướng về phía Trái Đất","Hướng lên trời","Hướng ngang","Không có chiều"],"correct":0},
+  {"text":"Trọng lực tác dụng lên vật nào?","answers":["Mọi vật gần Trái Đất","Chỉ vật bằng kim loại","Chỉ vật đang chuyển động","Chỉ vật rất nặng"],"correct":0},
+  {"text":"Khi thả một vật từ trên cao xuống, vật rơi xuống do lực gì?","answers":["Trọng lực","Lực đàn hồi","Lực từ","Lực điện"],"correct":0},
+  {"text":"Trọng lượng của vật là gì?","answers":["Độ lớn của trọng lực tác dụng lên vật","Khối lượng của vật","Thể tích của vật","Kích thước của vật"],"correct":0},
+  {"text":"Đơn vị của trọng lượng là gì?","answers":["Niutơn","Kilôgam","Mét","Lít"],"correct":0},
+  {"text":"Dụng cụ dùng để đo trọng lượng là gì?","answers":["Lực kế","Nhiệt kế","Thước đo","Đồng hồ"],"correct":0},
+  {"text":"Khối lượng của vật có thay đổi theo vị trí trên Trái Đất không?","answers":["Không","Có","Chỉ thay đổi trên núi","Chỉ thay đổi ở biển"],"correct":0},
+  {"text":"Trọng lượng của vật có thể thay đổi theo vị trí không?","answers":["Có","Không","Luôn bằng khối lượng","Không xác định"],"correct":0},
+  {"text":"Một vật có khối lượng lớn hơn thì trọng lực tác dụng lên nó thường thế nào?","answers":["Lớn hơn","Nhỏ hơn","Không đổi","Bằng 0"],"correct":0},
+  {"text":"Khi đứng trên mặt đất, vì sao con người không bay lên trời?","answers":["Vì bị Trái Đất hút bằng trọng lực","Vì không khí giữ lại","Vì ánh sáng giữ lại","Vì cơ thể không có khối lượng"],"correct":0},
+  {"text":"Vật nào sau đây chịu tác dụng của trọng lực?","answers":["Quả táo trên cây","Đám mây","Chiếc bàn","Tất cả các vật trên"],"correct":3},
+  {"text":"Khi ném quả bóng lên cao, vì sao bóng lại rơi xuống?","answers":["Do trọng lực kéo xuống","Do bóng tự muốn rơi","Do không khí đẩy xuống","Do ánh sáng làm rơi"],"correct":0},
+  {"text":"Trọng lực có thể làm thay đổi điều gì của vật?","answers":["Chuyển động của vật","Màu sắc của vật","Nhiệt độ của vật","Khối lượng của vật"],"correct":0},
+  {"text":"Trọng lực là lực tác dụng từ đâu?","answers":["Từ Trái Đất","Từ Mặt Trăng","Từ không khí","Từ nước"],"correct":0},
+  {"text":"Nếu không có trọng lực, điều gì có thể xảy ra?","answers":["Mọi vật có thể bay lơ lửng","Mọi vật nặng hơn","Mọi vật biến mất","Không có gì thay đổi"],"correct":0},
+  {"text":"Trọng lực thuộc loại lực nào?","answers":["Lực tác dụng từ xa","Lực tiếp xúc","Lực đàn hồi","Lực ma sát"],"correct":0},
+  {"text":"Khi treo vật vào lực kế, lực kế đo đại lượng nào?","answers":["Trọng lượng của vật","Khối lượng riêng","Thể tích","Nhiệt độ"],"correct":0},
+  {"text":"Trọng lực có vai trò gì trong đời sống?","answers":["Giữ mọi vật gắn với Trái Đất","Làm vật tự phát sáng","Làm nước biến mất","Ngăn mọi chuyển động"],"correct":0}
 ]
