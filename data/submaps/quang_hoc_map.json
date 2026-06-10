@@ -4,23 +4,41 @@
     "name": "Nguồn sáng",
     "x": 120,
     "y": 180,
+    "type": "lesson",
     "questionFile": "quang_nguon_sang.json",
-    "unlockAfter": null
+    "unlockAfter": null,
+    "difficulty": "easy",
+    "chestType": "wood",
+    "rewardExp": 10,
+    "recommendedLevel": 1,
+    "theme": "light"
   },
   {
     "id": "quang_2",
     "name": "Phản xạ ánh sáng",
     "x": 520,
     "y": 360,
+    "type": "lesson",
     "questionFile": "quang_phan_xa_anh_sang.json",
-    "unlockAfter": "quang_1"
+    "unlockAfter": "quang_1",
+    "difficulty": "normal",
+    "chestType": "iron",
+    "rewardExp": 20,
+    "recommendedLevel": 2,
+    "theme": "light"
   },
   {
     "id": "quang_3",
     "name": "Kính lúp",
     "x": 920,
     "y": 180,
+    "type": "lesson",
     "questionFile": "quang_kinh_lup.json",
-    "unlockAfter": "quang_2"
+    "unlockAfter": "quang_2",
+    "difficulty": "hard",
+    "chestType": "silver",
+    "rewardExp": 30,
+    "recommendedLevel": 3,
+    "theme": "light"
   }
 ]
