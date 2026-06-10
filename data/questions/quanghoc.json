@@ -1,0 +1,52 @@
+[
+  {
+    "text": "Nguồn sáng là gì?",
+    "answers": ["Vật tự phát ra ánh sáng", "Vật phản chiếu ánh sáng", "Vật hấp thụ ánh sáng", "Vật cản ánh sáng"],
+    "correct": 0
+  },
+  {
+    "text": "Trong môi trường trong suốt và đồng tính, ánh sáng truyền theo đường nào?",
+    "answers": ["Đường cong", "Đường gấp khúc", "Đường thẳng", "Đường xoắn"],
+    "correct": 2
+  },
+  {
+    "text": "Hiện tượng nhìn thấy ảnh của mình trong gương là do gì?",
+    "answers": ["Khúc xạ ánh sáng", "Tán sắc ánh sáng", "Phản xạ ánh sáng", "Hấp thụ ánh sáng"],
+    "correct": 2
+  },
+  {
+    "text": "Ảnh tạo bởi gương phẳng có tính chất nào?",
+    "answers": ["Ảnh thật, nhỏ hơn vật", "Ảnh ảo, lớn hơn vật", "Ảnh ảo, bằng vật", "Ảnh thật, bằng vật"],
+    "correct": 2
+  },
+  {
+    "text": "Khi ánh sáng gặp gương phẳng thì xảy ra hiện tượng gì?",
+    "answers": ["Khúc xạ", "Phản xạ", "Tán sắc", "Hấp thụ hoàn toàn"],
+    "correct": 1
+  },
+  {
+    "text": "Vật nào dưới đây không phải nguồn sáng?",
+    "answers": ["Mặt Trời", "Ngọn nến đang cháy", "Bóng đèn đang sáng", "Mặt Trăng"],
+    "correct": 3
+  },
+  {
+    "text": "Tia phản xạ nằm trong mặt phẳng nào?",
+    "answers": ["Mặt phẳng chứa tia tới và pháp tuyến", "Mặt phẳng chứa gương", "Mặt phẳng vuông góc gương", "Mặt phẳng bất kỳ"],
+    "correct": 0
+  },
+  {
+    "text": "Góc phản xạ có quan hệ như thế nào với góc tới?",
+    "answers": ["Lớn hơn góc tới", "Nhỏ hơn góc tới", "Bằng góc tới", "Không liên quan"],
+    "correct": 2
+  },
+  {
+    "text": "Kính lúp hoạt động dựa trên hiện tượng nào?",
+    "answers": ["Phản xạ ánh sáng", "Khúc xạ ánh sáng", "Tán sắc ánh sáng", "Phát sáng"],
+    "correct": 1
+  },
+  {
+    "text": "Vì sao ta nhìn thấy vật?",
+    "answers": ["Vật tự phát sáng", "Có ánh sáng từ vật truyền vào mắt", "Mắt phát ra ánh sáng", "Không cần ánh sáng"],
+    "correct": 1
+  }
+]

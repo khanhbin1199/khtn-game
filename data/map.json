@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Lực học",
+    "x": 120,
+    "y": 120,
+    "questionFile": "luc_hoc.json",
+    "unlockAfter": null
+  },
+  {
+    "id": 2,
+    "name": "Điện học",
+    "x": 600,
+    "y": 300,
+    "questionFile": "dien_hoc.json",
+    "unlockAfter": 1
+  },
+  {
+    "id": 3,
+    "name": "Áp suất",
+    "x": 1100,
+    "y": 100,
+    "questionFile": "ap_suat.json",
+    "unlockAfter": 2
+  },
+  {
+    "id": 4,
+    "name": "Quang học",
+    "x": 1100,
+    "y": 500,
+    "questionFile": "quanghoc.json",
+    "unlockAfter": 2
+  }
+]
