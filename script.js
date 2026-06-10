@@ -2,6 +2,9 @@ let exp = Number(localStorage.getItem("exp")) || 0;
 let level = Number(localStorage.getItem("level")) || 1;
 let levelExp = Number(localStorage.getItem("levelExp")) || 0;
 
+let playerHp = Number(localStorage.getItem("playerHp")) || 100;
+let maxPlayerHp = Number(localStorage.getItem("maxPlayerHp")) || 100;
+
 let attemptsLeft = 2;
 let currentQuestionIndex = 0;
 let answeredCurrentQuestion = false;
@@ -24,6 +27,8 @@ let currentMapNodes = [];
 let currentRegion = null;
 let currentNode = null;
 let currentQuestions = [];
+
+let currentBoss = null;
 
 let playerPosition = { x: 25, y: 250 };
 
@@ -125,6 +130,7 @@ async function loadWorldMap() {
   currentRegion = null;
   currentNode = null;
   currentQuestions = [];
+  currentBoss = null;
   playerPosition = { x: 25, y: 250 };
 
   renderMap("Bản đồ thế giới");
@@ -139,6 +145,7 @@ async function loadSubMap(regionNode) {
   currentRegion = regionNode;
   currentNode = null;
   currentQuestions = [];
+  currentBoss = null;
   playerPosition = { x: 25, y: 250 };
 
   renderMap(`Khu vực: ${regionNode.name}`);
@@ -177,7 +184,12 @@ function renderMap(titleText) {
 
     nodeDiv.style.left = node.x + "px";
     nodeDiv.style.top = node.y + "px";
-    nodeDiv.innerText = node.name;
+
+    if (node.type === "boss") {
+      nodeDiv.innerText = `👾 ${node.name}`;
+    } else {
+      nodeDiv.innerText = node.name;
+    }
 
     nodeDiv.onclick = async function () {
       if (!isUnlocked(node)) {
@@ -195,6 +207,8 @@ function renderMap(titleText) {
       setTimeout(async function () {
         if (node.type === "region") {
           await loadSubMap(node);
+        } else if (node.type === "boss") {
+          startBossBattle(node);
         } else {
           await startQuestionNode(node);
         }
@@ -225,6 +239,11 @@ function showMainButtons() {
     worldButton.onclick = loadWorldMap;
     answersDiv.appendChild(worldButton);
   }
+
+  const healButton = document.createElement("button");
+  healButton.innerText = "❤️ Hồi đầy HP";
+  healButton.onclick = healPlayer;
+  answersDiv.appendChild(healButton);
 
   const equipmentButton = document.createElement("button");
   equipmentButton.innerText = "⚔ Trang bị vũ khí";
@@ -384,6 +403,8 @@ function checkLevelUp() {
   if (levelExp >= levelRequired) {
     level++;
     levelExp = 0;
+    maxPlayerHp += 10;
+    playerHp = maxPlayerHp;
   }
 }
 
@@ -395,7 +416,7 @@ function updateUI() {
   const levelRequired = getLevelRequired(level);
 
   document.getElementById("exp").innerText =
-    `Lv ${level} | EXP: ${exp} | Cấp: ${levelExp}/${levelRequired} | Lượt trả lời: ${attemptsLeft}`;
+    `Lv ${level} | HP: ${playerHp}/${maxPlayerHp} | EXP: ${exp} | Cấp: ${levelExp}/${levelRequired} | Lượt trả lời: ${attemptsLeft}`;
 }
 
 function showBuyRetryButton() {
@@ -478,7 +499,9 @@ function finishQuestionGroup() {
 function checkRegionComplete() {
   if (!currentRegion) return;
 
-  const allSubNodesCompleted = currentMapNodes.every(node =>
+  const normalNodes = currentMapNodes.filter(node => node.type !== "boss");
+
+  const allSubNodesCompleted = normalNodes.every(node =>
     completedNodes.includes(node.id)
   );
 
@@ -495,14 +518,14 @@ function showChestButton() {
 
   openChestButton.onclick = function () {
     openChestButton.remove();
-    openChest();
+    openChest(currentNode.chestType || "wood");
   };
 
   answersDiv.appendChild(openChestButton);
 }
 
-function openChest() {
-  const rewards = generateChestRewards(currentNode.chestType || "wood");
+function openChest(chestType) {
+  const rewards = generateChestRewards(chestType);
 
   rewards.forEach(reward => {
     addItemToInventory(reward.name, reward.quantity);
@@ -516,7 +539,7 @@ function openChest() {
     .join("\n");
 
   document.getElementById("result").innerText =
-    `✨ Bạn mở ${getChestName(currentNode.chestType || "wood")} và nhận được:\n${rewardText}`;
+    `✨ Bạn mở ${getChestName(chestType)} và nhận được:\n${rewardText}`;
 
   const backButton = document.createElement("button");
   backButton.innerText = currentRegion ? "Quay lại map khu vực" : "Quay lại bản đồ";
@@ -557,6 +580,151 @@ function getChestName(chestType) {
   if (chestType === "gold") return "Rương Vàng";
   if (chestType === "legend") return "Rương Huyền Bí";
   return "Rương Gỗ";
+}
+
+function startBossBattle(node) {
+  currentNode = node;
+
+  const bossMaxHp = node.bossHp || 100;
+
+  currentBoss = {
+    id: node.id,
+    name: node.bossName || node.name || "Boss",
+    hp: bossMaxHp,
+    maxHp: bossMaxHp,
+    damage: node.bossDamage || 10,
+    rewardChest: node.rewardChest || node.chestType || "gold",
+    rewardExp: node.rewardExp || 50
+  };
+
+  document.getElementById("map").style.display = "none";
+  renderBossBattle();
+}
+
+function renderBossBattle() {
+  document.getElementById("progress").innerText = "Boss Battle";
+  document.getElementById("question").innerText =
+    `👾 ${currentBoss.name}`;
+
+  document.getElementById("nextBtn").style.display = "none";
+
+  const answersDiv = document.getElementById("answers");
+  answersDiv.innerHTML = "";
+
+  const bossInfo = document.createElement("div");
+  bossInfo.style.border = "2px solid #aa4444";
+  bossInfo.style.padding = "16px";
+  bossInfo.style.margin = "12px 0";
+  bossInfo.style.borderRadius = "10px";
+  bossInfo.style.fontSize = "28px";
+  bossInfo.style.background = "#fff1f1";
+
+  bossInfo.innerText =
+    `Boss HP: ${currentBoss.hp}/${currentBoss.maxHp}\n` +
+    `Boss Damage: ${currentBoss.damage}\n` +
+    `Vũ khí đang dùng: ${getEquippedWeaponText()}\n` +
+    `Sát thương của bạn: ${getEquippedDamage()}`;
+
+  answersDiv.appendChild(bossInfo);
+
+  const attackButton = document.createElement("button");
+  attackButton.innerText = "⚔ Tấn công";
+  attackButton.onclick = playerAttackBoss;
+  answersDiv.appendChild(attackButton);
+
+  const backButton = document.createElement("button");
+  backButton.innerText = currentRegion ? "Rút lui về map khu vực" : "Rút lui về bản đồ";
+  backButton.onclick = function () {
+    currentBoss = null;
+    renderMap(currentRegion ? `Khu vực: ${currentRegion.name}` : "Bản đồ thế giới");
+  };
+  answersDiv.appendChild(backButton);
+
+  updateUI();
+  updateEquippedWeaponUI();
+}
+
+function playerAttackBoss() {
+  if (!currentBoss) return;
+
+  if (playerHp <= 0) {
+    document.getElementById("result").innerText =
+      "Bạn đã hết HP. Hãy hồi máu trước khi đánh tiếp.";
+    return;
+  }
+
+  const damage = getEquippedDamage();
+
+  currentBoss.hp -= damage;
+
+  if (currentBoss.hp <= 0) {
+    currentBoss.hp = 0;
+    winBossBattle();
+    return;
+  }
+
+  playerHp -= currentBoss.damage;
+
+  if (playerHp <= 0) {
+    playerHp = 0;
+    saveGame();
+
+    document.getElementById("result").innerText =
+      `Bạn gây ${damage} sát thương.\n${currentBoss.name} phản đòn ${currentBoss.damage} sát thương.\nBạn đã thua trận.`;
+
+    renderBossBattle();
+    return;
+  }
+
+  saveGame();
+
+  document.getElementById("result").innerText =
+    `Bạn gây ${damage} sát thương.\n${currentBoss.name} phản đòn ${currentBoss.damage} sát thương.`;
+
+  renderBossBattle();
+}
+
+function winBossBattle() {
+  if (!completedNodes.includes(currentNode.id)) {
+    completedNodes.push(currentNode.id);
+  }
+
+  exp += currentBoss.rewardExp;
+  levelExp += currentBoss.rewardExp;
+  checkLevelUp();
+
+  saveGame();
+
+  document.getElementById("progress").innerText = "Chiến thắng";
+  document.getElementById("question").innerText =
+    `🏆 Đã đánh bại ${currentBoss.name}!`;
+
+  document.getElementById("answers").innerHTML = "";
+  document.getElementById("nextBtn").style.display = "none";
+
+  document.getElementById("result").innerText =
+    `Bạn nhận ${currentBoss.rewardExp} EXP và một ${getChestName(currentBoss.rewardChest)}!`;
+
+  const openBossChestButton = document.createElement("button");
+  openBossChestButton.innerText = `🎁 Mở ${getChestName(currentBoss.rewardChest)}`;
+
+  openBossChestButton.onclick = function () {
+    openBossChestButton.remove();
+    openChest(currentBoss.rewardChest);
+    currentBoss = null;
+  };
+
+  document.getElementById("answers").appendChild(openBossChestButton);
+
+  updateUI();
+}
+
+function healPlayer() {
+  playerHp = maxPlayerHp;
+  saveGame();
+  updateUI();
+
+  document.getElementById("result").innerText = "HP đã hồi đầy.";
 }
 
 function showShopPanel() {
@@ -977,6 +1145,11 @@ function updateEquippedWeaponUI() {
     `⚔ Vũ khí đang dùng: ${getRarityIcon(equippedWeapon.rarity)} ${equippedWeapon.name} | ST: ${equippedWeapon.damage}`;
 }
 
+function getEquippedWeaponText() {
+  if (!equippedWeapon) return "Chưa trang bị";
+  return `${getRarityIcon(equippedWeapon.rarity)} ${equippedWeapon.name}`;
+}
+
 function getEquippedDamage() {
   if (!equippedWeapon) return 1;
   return equippedWeapon.damage || 1;
@@ -1058,6 +1231,8 @@ function saveGame() {
   localStorage.setItem("exp", exp);
   localStorage.setItem("level", level);
   localStorage.setItem("levelExp", levelExp);
+  localStorage.setItem("playerHp", playerHp);
+  localStorage.setItem("maxPlayerHp", maxPlayerHp);
   localStorage.setItem("inventory", JSON.stringify(inventory));
   localStorage.setItem("weapons", JSON.stringify(weapons));
   localStorage.setItem("equippedWeapon", JSON.stringify(equippedWeapon));
