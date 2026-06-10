@@ -1,32 +1,22 @@
 [
-  {
-    "text": "Dòng điện là gì?",
-    "answers": [
-      "Dòng chuyển dời có hướng của các điện tích",
-      "Dòng nước chảy trong ống",
-      "Sự truyền nhiệt qua dây dẫn",
-      "Ánh sáng phát ra từ bóng đèn"
-    ],
-    "correct": 0
-  },
-  {
-    "text": "Đơn vị của hiệu điện thế là gì?",
-    "answers": ["Ampe", "Vôn", "Oát", "Niutơn"],
-    "correct": 1
-  },
-  {
-    "text": "Dụng cụ nào dùng để đo cường độ dòng điện?",
-    "answers": ["Vôn kế", "Ampe kế", "Nhiệt kế", "Lực kế"],
-    "correct": 1
-  },
-  {
-    "text": "Vật nào dưới đây dẫn điện tốt?",
-    "answers": ["Cao su", "Nhựa", "Đồng", "Gỗ khô"],
-    "correct": 2
-  },
-  {
-    "text": "Kí hiệu của đơn vị điện trở là gì?",
-    "answers": ["A", "V", "Ω", "W"],
-    "correct": 2
-  }
+  {"text":"Hiệu điện thế cho biết điều gì?","answers":["Mức độ mạnh yếu của nguồn điện hoặc sự chênh lệch điện thế giữa hai điểm","Khối lượng của dây dẫn","Nhiệt độ của bóng đèn","Chiều dài của công tắc"],"correct":0},
+  {"text":"Đơn vị của hiệu điện thế là gì?","answers":["Vôn","Ampe","Ôm","Oát"],"correct":0},
+  {"text":"Kí hiệu đơn vị vôn là gì?","answers":["V","A","Ω","W"],"correct":0},
+  {"text":"Dụng cụ dùng để đo hiệu điện thế là gì?","answers":["Vôn kế","Ampe kế","Nhiệt kế","Lực kế"],"correct":0},
+  {"text":"Khi đo hiệu điện thế giữa hai đầu bóng đèn, vôn kế được mắc như thế nào?","answers":["Mắc song song với bóng đèn","Mắc nối tiếp với bóng đèn","Mắc thay cho nguồn điện","Mắc vào một đầu dây bất kỳ"],"correct":0},
+  {"text":"Trên vôn kế, chốt dương thường được nối với phía nào của mạch?","answers":["Phía cực dương của nguồn điện","Phía cực âm của nguồn điện","Bất kỳ phía nào cũng luôn đúng","Không cần nối"],"correct":0},
+  {"text":"Số vôn ghi trên nguồn điện cho biết điều gì?","answers":["Hiệu điện thế giữa hai cực của nguồn điện","Cường độ dòng điện tối đa","Điện trở của dây dẫn","Khối lượng nguồn điện"],"correct":0},
+  {"text":"Pin 1,5 V nghĩa là gì?","answers":["Hiệu điện thế giữa hai cực pin là 1,5 V","Cường độ dòng điện là 1,5 A","Điện trở là 1,5 Ω","Công suất là 1,5 W"],"correct":0},
+  {"text":"Hiệu điện thế giữa hai đầu dụng cụ điện càng lớn thì dòng điện qua dụng cụ thường thế nào?","answers":["Càng mạnh nếu điều kiện khác không đổi","Càng yếu","Luôn bằng 0","Không thể xuất hiện"],"correct":0},
+  {"text":"Nếu hiệu điện thế giữa hai đầu bóng đèn bằng 0 thì bóng đèn thường thế nào?","answers":["Không sáng","Sáng bình thường","Sáng mạnh hơn","Nổ ngay"],"correct":0},
+  {"text":"Trong mạch điện, hiệu điện thế được đo giữa mấy điểm?","answers":["Hai điểm","Một điểm","Ba điểm cố định","Không điểm nào"],"correct":0},
+  {"text":"Muốn đo hiệu điện thế của nguồn điện, ta mắc vôn kế như thế nào?","answers":["Mắc vào hai cực của nguồn điện","Mắc nối tiếp với nguồn điện","Mắc vào một cực duy nhất","Mắc thay cho dây dẫn"],"correct":0},
+  {"text":"Khi dùng vôn kế, cần chọn thang đo như thế nào?","answers":["Thang đo phù hợp, lớn hơn giá trị dự đoán","Thang đo nhỏ nhất bất kỳ","Không cần chọn thang đo","Luôn chọn thang 0 V"],"correct":0},
+  {"text":"Nếu mắc sai cực vôn kế kim, kim có thể thế nào?","answers":["Lệch ngược chiều","Chỉ đúng hơn","Không bị ảnh hưởng","Tự tăng thang đo"],"correct":0},
+  {"text":"Hiệu điện thế trong mạch điện có vai trò gần giống yếu tố nào trong dòng nước?","answers":["Độ chênh lệch làm nước chảy","Màu của nước","Mùi của nước","Khối lượng riêng của ống"],"correct":0},
+  {"text":"Nguồn điện 9 V có hiệu điện thế lớn hơn nguồn nào dưới đây?","answers":["Nguồn 1,5 V","Nguồn 12 V","Nguồn 220 V","Nguồn 110 V"],"correct":0},
+  {"text":"Khi hai pin 1,5 V mắc nối tiếp đúng cách, hiệu điện thế tổng khoảng bao nhiêu?","answers":["3 V","1,5 V","0 V","0,75 V"],"correct":0},
+  {"text":"Khi mắc song song hai nguồn giống nhau đúng cách, hiệu điện thế bộ nguồn thường thế nào?","answers":["Bằng hiệu điện thế của một nguồn","Tăng gấp đôi","Giảm về 0","Tăng gấp ba"],"correct":0},
+  {"text":"Thiết bị điện hoạt động bình thường khi nào?","answers":["Khi được mắc vào hiệu điện thế phù hợp với định mức","Khi mắc vào hiệu điện thế bất kỳ","Khi không có nguồn điện","Khi chỉ nối một đầu dây"],"correct":0},
+  {"text":"Nếu dùng hiệu điện thế quá lớn cho thiết bị, điều gì có thể xảy ra?","answers":["Thiết bị có thể hỏng hoặc cháy","Thiết bị chắc chắn bền hơn","Không có tác dụng gì","Dòng điện luôn giảm về 0"],"correct":0}
 ]
