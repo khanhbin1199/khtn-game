@@ -44,7 +44,7 @@ h1 {
 
 #map {
   position: relative;
-  width: 2400px;
+  width: 1700px;
   height: 900px;
   background: linear-gradient(#dff3ff, #e8ffd8);
   overflow: hidden;
