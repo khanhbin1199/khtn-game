@@ -15,6 +15,8 @@ let inventory = Array.isArray(savedInventory)
   : savedInventory;
 
 let weapons = JSON.parse(localStorage.getItem("weapons")) || {};
+let equippedWeapon = JSON.parse(localStorage.getItem("equippedWeapon")) || null;
+
 let completedNodes = JSON.parse(localStorage.getItem("completedNodes")) || [];
 
 let worldMapNodes = [];
@@ -127,6 +129,7 @@ async function loadWorldMap() {
 
   renderMap("Bản đồ thế giới");
   updateInventory();
+  updateEquippedWeaponUI();
 }
 
 async function loadSubMap(regionNode) {
@@ -210,6 +213,7 @@ function renderMap(titleText) {
 
   showMainButtons();
   updateUI();
+  updateEquippedWeaponUI();
 }
 
 function showMainButtons() {
@@ -221,6 +225,11 @@ function showMainButtons() {
     worldButton.onclick = loadWorldMap;
     answersDiv.appendChild(worldButton);
   }
+
+  const equipmentButton = document.createElement("button");
+  equipmentButton.innerText = "⚔ Trang bị vũ khí";
+  equipmentButton.onclick = showEquipmentPanel;
+  answersDiv.appendChild(equipmentButton);
 
   const craftButton = document.createElement("button");
   craftButton.innerText = "⚒ Xưởng chế tạo / Nâng cấp";
@@ -328,6 +337,7 @@ function loadQuestion() {
   });
 
   updateUI();
+  updateEquippedWeaponUI();
 }
 
 function answerQuestion(index) {
@@ -785,6 +795,7 @@ function craftWeapon(recipe) {
 
   saveGame();
   updateInventory();
+  updateEquippedWeaponUI();
 }
 
 function consumeMaterialsOnFail(recipe) {
@@ -814,8 +825,161 @@ function removeItemOrWeapon(name, quantity) {
 
     if (weapons[name].quantity <= 0) {
       delete weapons[name];
+
+      if (equippedWeapon && equippedWeapon.name === name) {
+        equippedWeapon = null;
+      }
     }
   }
+}
+
+function showEquipmentPanel() {
+  document.getElementById("map").style.display = "none";
+  document.getElementById("progress").innerText = "Trang bị";
+  document.getElementById("question").innerText = "⚔ Chọn vũ khí để trang bị";
+  document.getElementById("result").innerText = "";
+  document.getElementById("nextBtn").style.display = "none";
+
+  const answersDiv = document.getElementById("answers");
+  answersDiv.innerHTML = "";
+
+  const weaponNames = Object.keys(weapons);
+
+  if (weaponNames.length === 0) {
+    const empty = document.createElement("p");
+    empty.innerText = "Bạn chưa có vũ khí nào. Hãy vào Xưởng chế tạo để tạo vũ khí.";
+    answersDiv.appendChild(empty);
+  }
+
+  weaponNames.forEach(weaponName => {
+    const weapon = weapons[weaponName];
+
+    const box = document.createElement("div");
+    box.style.border = "1px solid #aaa";
+    box.style.padding = "12px";
+    box.style.margin = "10px 0";
+    box.style.borderRadius = "8px";
+
+    const title = document.createElement("h3");
+    title.innerText =
+      `${getRarityIcon(weapon.rarity)} ${weaponName} x${weapon.quantity}`;
+    box.appendChild(title);
+
+    const info = document.createElement("p");
+    info.innerText = `Bậc: ${weapon.rarity} | Sát thương: ${weapon.damage}`;
+    box.appendChild(info);
+
+    const equipButton = document.createElement("button");
+
+    if (equippedWeapon && equippedWeapon.name === weaponName) {
+      equipButton.innerText = "Đang trang bị";
+      equipButton.disabled = true;
+    } else {
+      equipButton.innerText = "Trang bị";
+    }
+
+    equipButton.onclick = function () {
+      equipWeapon(weaponName);
+      showEquipmentPanel();
+    };
+
+    box.appendChild(equipButton);
+    answersDiv.appendChild(box);
+  });
+
+  if (equippedWeapon) {
+    const unequipButton = document.createElement("button");
+    unequipButton.innerText = "Tháo vũ khí hiện tại";
+
+    unequipButton.onclick = function () {
+      equippedWeapon = null;
+      saveGame();
+      updateEquippedWeaponUI();
+      showEquipmentPanel();
+    };
+
+    answersDiv.appendChild(unequipButton);
+  }
+
+  const backButton = document.createElement("button");
+  backButton.innerText = currentRegion ? "Quay lại map khu vực" : "Quay lại bản đồ";
+
+  backButton.onclick = function () {
+    renderMap(currentRegion ? `Khu vực: ${currentRegion.name}` : "Bản đồ thế giới");
+  };
+
+  answersDiv.appendChild(backButton);
+}
+
+function equipWeapon(weaponName) {
+  const weapon = weapons[weaponName];
+
+  if (!weapon || weapon.quantity <= 0) {
+    document.getElementById("result").innerText = "Bạn không có vũ khí này.";
+    return;
+  }
+
+  equippedWeapon = {
+    name: weaponName,
+    rarity: weapon.rarity,
+    damage: weapon.damage
+  };
+
+  saveGame();
+  updateEquippedWeaponUI();
+
+  document.getElementById("result").innerText =
+    `Đã trang bị ${weaponName}.`;
+}
+
+function ensureEquippedWeaponBox() {
+  let box = document.getElementById("equippedWeaponBox");
+
+  if (box) return box;
+
+  const inventoryTitle = Array.from(document.querySelectorAll("h2"))
+    .find(title => title.innerText.includes("Túi đồ"));
+
+  box = document.createElement("div");
+  box.id = "equippedWeaponBox";
+  box.style.border = "1px solid #aaa";
+  box.style.padding = "12px";
+  box.style.margin = "16px 0";
+  box.style.borderRadius = "8px";
+  box.style.fontSize = "24px";
+  box.style.background = "#f8f8f8";
+
+  if (inventoryTitle) {
+    inventoryTitle.parentNode.insertBefore(box, inventoryTitle);
+  } else {
+    document.querySelector(".game-box").appendChild(box);
+  }
+
+  return box;
+}
+
+function updateEquippedWeaponUI() {
+  const box = ensureEquippedWeaponBox();
+
+  if (!equippedWeapon) {
+    box.innerText = "⚔ Vũ khí đang dùng: Chưa trang bị";
+    return;
+  }
+
+  if (!weapons[equippedWeapon.name] || weapons[equippedWeapon.name].quantity <= 0) {
+    equippedWeapon = null;
+    saveGame();
+    box.innerText = "⚔ Vũ khí đang dùng: Chưa trang bị";
+    return;
+  }
+
+  box.innerText =
+    `⚔ Vũ khí đang dùng: ${getRarityIcon(equippedWeapon.rarity)} ${equippedWeapon.name} | ST: ${equippedWeapon.damage}`;
+}
+
+function getEquippedDamage() {
+  if (!equippedWeapon) return 1;
+  return equippedWeapon.damage || 1;
 }
 
 function addItemToInventory(itemName, quantity) {
@@ -838,6 +1002,7 @@ function updateInventory() {
     const li = document.createElement("li");
     li.innerText = "Chưa có vật phẩm";
     inventoryList.appendChild(li);
+    updateEquippedWeaponUI();
     return;
   }
 
@@ -854,6 +1019,8 @@ function updateInventory() {
       `${getRarityIcon(weapon.rarity)} ${weaponName} x${weapon.quantity} - ST: ${weapon.damage}`;
     inventoryList.appendChild(li);
   });
+
+  updateEquippedWeaponUI();
 }
 
 function getRandomQuestions(questionList, count) {
@@ -893,5 +1060,6 @@ function saveGame() {
   localStorage.setItem("levelExp", levelExp);
   localStorage.setItem("inventory", JSON.stringify(inventory));
   localStorage.setItem("weapons", JSON.stringify(weapons));
+  localStorage.setItem("equippedWeapon", JSON.stringify(equippedWeapon));
   localStorage.setItem("completedNodes", JSON.stringify(completedNodes));
 }
