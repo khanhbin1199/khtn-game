@@ -1,6 +1,6 @@
 [
   {
-    "id": "apsuat_1",
+    "id": "ap_1",
     "name": "Áp suất cơ bản",
     "x": 120,
     "y": 180,
@@ -12,43 +12,42 @@
     "rewardExp": 10
   },
   {
-    "id": "apsuat_2",
+    "id": "ap_2",
     "name": "Áp suất chất lỏng",
     "x": 520,
     "y": 360,
     "type": "lesson",
     "questionFile": "ap_suat_chat_long.json",
-    "unlockAfter": "apsuat_1",
+    "unlockAfter": "ap_1",
     "difficulty": "normal",
     "chestType": "iron",
     "rewardExp": 20
   },
   {
-    "id": "apsuat_3",
+    "id": "ap_3",
     "name": "Áp suất khí quyển",
     "x": 920,
     "y": 180,
     "type": "lesson",
     "questionFile": "ap_suat_khi_quyen.json",
-    "unlockAfter": "apsuat_2",
+    "unlockAfter": "ap_2",
     "difficulty": "hard",
     "chestType": "silver",
     "rewardExp": 30
   },
   {
-    "id": "apsuat_boss",
+    "id": "ap_boss",
     "name": "Boss Áp Suất",
     "x": 1320,
     "y": 360,
     "type": "boss",
     "bossType": "pressure",
-    "unlockAfter": "apsuat_3",
+    "unlockAfter": "ap_3",
     "bossName": "Cự Thú Khí Áp",
     "bossHp": 320,
     "bossDamage": 20,
     "rewardChest": "legend",
     "rewardExp": 100,
-
     "rareDrops": [
       {
         "item": "Tinh Thể Chân Không",
