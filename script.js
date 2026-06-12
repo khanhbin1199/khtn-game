@@ -339,7 +339,7 @@ for (let i = question.answers.length - 1; i > 0; i--) {
 }
 
 question.correct = question.answers.indexOf(correctAnswer);
-
+currentDisplayedQuestion = question;
   document.getElementById("progress").innerText =
     `Câu ${currentQuestionIndex + 1}/${currentQuestions.length} - ${currentNode.name}`;
 
