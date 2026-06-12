@@ -372,7 +372,7 @@ function answerQuestion(index) {
     return;
   }
 
-  const question = currentQuestions[currentQuestionIndex];
+  const question = currentDisplayedQuestion;
 
   attemptsLeft--;
 
