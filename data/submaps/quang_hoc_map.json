@@ -40,5 +40,23 @@
     "rewardExp": 30,
     "recommendedLevel": 3,
     "theme": "light"
+  },
+  {
+    "id": "quang_boss",
+    "name": "Boss Quang Học",
+    "x": 1320,
+    "y": 360,
+    "type": "boss",
+    "bossType": "light",
+    "unlockAfter": "quang_3",
+    "bossName": "Tinh Linh Quang Học",
+    "bossHp": 200,
+    "bossDamage": 12,
+    "rewardChest": "gold",
+    "rewardExp": 80,
+    "recommendedLevel": 3,
+    "knowledgeQuiz": true,
+    "knowledgeQuestionFile": "quang_phan_xa_anh_sang.json",
+    "knowledgeQuestionCount": 3
   }
 ]
