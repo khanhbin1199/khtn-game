@@ -307,9 +307,9 @@ function movePlayerTo(node) {
   }
 }
 
-async function startQuestionNode(node) {
+async function startQuestionNode(node){
   currentNode = node;
-
+ console.log("QUESTION FILE =", node.questionFile);
   const response = await fetch(`data/questions/${node.questionFile}`);
   const allQuestions = await response.json();
 
