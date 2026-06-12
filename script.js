@@ -350,22 +350,22 @@ currentDisplayedQuestion = question;
   const answersDiv = document.getElementById("answers");
   answersDiv.innerHTML = "";
 
-  question.answers.forEach((answer, index) => {
-    const button = document.createElement("button");
-    button.innerText = answer;
+ question.answers.forEach((answer, index) => {
+  const button = document.createElement("button");
+  button.innerText = answer;
 
-    button.onclick = function () {
-      answerQuestion(index);
-    };
+  button.onclick = function () {
+    answerQuestion(answer === correctAnswer);
+  };
 
-    answersDiv.appendChild(button);
-  });
+  answersDiv.appendChild(button);
+});
 
   updateUI();
   updateEquippedWeaponUI();
 }
 
-function answerQuestion(index) {
+function answerQuestion(isCorrect) {
   if (attemptsLeft <= 0) {
     document.getElementById("result").innerText = "Bạn đã hết lượt trả lời.";
     showBuyRetryButton();
@@ -376,7 +376,7 @@ function answerQuestion(index) {
 
   attemptsLeft--;
 
-  if (index === question.correct) {
+  if (isCorrect) {
     if (!answeredCurrentQuestion) {
       exp += 10;
       levelExp += 10;
