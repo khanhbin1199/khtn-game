@@ -26,7 +26,7 @@ let currentMapNodes = [];
 let currentRegion = null;
 let currentNode = null;
 let currentQuestions = [];
-
+let currentDisplayedQuestion = null;
 let currentBoss = null;
 let bossTurnCount = 0;
 
