@@ -152,7 +152,8 @@ async function loadWorldMap() {
 async function loadSubMap(regionNode) {
   const response = await fetch(`data/submaps/${regionNode.subMap}`);
   currentMapNodes = await response.json();
-
+console.log("SUBMAP LOADED");
+console.log(currentMapNodes);
   currentRegion = regionNode;
   currentNode = null;
   currentQuestions = [];
