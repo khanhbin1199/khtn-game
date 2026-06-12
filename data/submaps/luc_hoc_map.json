@@ -40,5 +40,23 @@
     "rewardExp": 25,
     "recommendedLevel": 2,
     "theme": "physical"
+  },
+  {
+    "id": "luc_boss",
+    "name": "Boss Lực Học",
+    "x": 1320,
+    "y": 360,
+    "type": "boss",
+    "bossType": "gravity",
+    "unlockAfter": "luc_3",
+    "bossName": "Kỵ Sĩ Trọng Lực",
+    "bossHp": 280,
+    "bossDamage": 18,
+    "rewardChest": "gold",
+    "rewardExp": 90,
+    "recommendedLevel": 4,
+    "knowledgeQuiz": true,
+    "knowledgeQuestionFile": "luc_trong_luc.json",
+    "knowledgeQuestionCount": 3
   }
 ]
