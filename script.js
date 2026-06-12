@@ -1,6 +1,3 @@
-// Bản script.js đầy đủ: Map + Submap + Quiz + EXP/Level/HP + Shop + Crafting
-// + Equipment + Boss + Knowledge Buff + Boss riêng từng khu
-
 let exp = Number(localStorage.getItem("exp")) || 0;
 let level = Number(localStorage.getItem("level")) || 1;
 let levelExp = Number(localStorage.getItem("levelExp")) || 0;
@@ -22,7 +19,6 @@ let inventory = Array.isArray(savedInventory)
 
 let weapons = JSON.parse(localStorage.getItem("weapons")) || {};
 let equippedWeapon = JSON.parse(localStorage.getItem("equippedWeapon")) || null;
-
 let completedNodes = JSON.parse(localStorage.getItem("completedNodes")) || [];
 
 let worldMapNodes = [];
@@ -80,22 +76,18 @@ const shopItems = [
   { name: "Bụi hỏa khí", rarity: "Thường", buyPrice: 15, sellPrice: 8, unlockLevel: 1 },
   { name: "Gỗ cứng", rarity: "Thường", buyPrice: 12, sellPrice: 6, unlockLevel: 1 },
   { name: "Đá thô", rarity: "Thường", buyPrice: 12, sellPrice: 6, unlockLevel: 1 },
-
   { name: "Tinh thạch nhỏ", rarity: "Hiếm", buyPrice: 30, sellPrice: 15, unlockLevel: 2 },
   { name: "Lông chim lửa", rarity: "Hiếm", buyPrice: 50, sellPrice: 25, unlockLevel: 3 },
   { name: "Tinh hoa băng", rarity: "Hiếm", buyPrice: 50, sellPrice: 25, unlockLevel: 3 },
   { name: "Mảnh điện tích", rarity: "Hiếm", buyPrice: 45, sellPrice: 22, unlockLevel: 3 },
-
   { name: "Tinh thạch lôi điện", rarity: "Quý", buyPrice: 100, sellPrice: 50, unlockLevel: 5 },
   { name: "Lõi năng lượng", rarity: "Quý", buyPrice: 150, sellPrice: 75, unlockLevel: 7 },
   { name: "Hạch băng", rarity: "Quý", buyPrice: 120, sellPrice: 60, unlockLevel: 6 },
   { name: "Hỏa ngọc", rarity: "Quý", buyPrice: 120, sellPrice: 60, unlockLevel: 6 },
-
   { name: "Mảnh thái dương", rarity: "Sử Thi", buyPrice: 300, sellPrice: 150, unlockLevel: 10 },
   { name: "Lõi hư không", rarity: "Sử Thi", buyPrice: 450, sellPrice: 225, unlockLevel: 12 },
   { name: "Tinh tú cổ đại", rarity: "Sử Thi", buyPrice: 500, sellPrice: 250, unlockLevel: 12 },
   { name: "Huyết tinh long tộc", rarity: "Sử Thi", buyPrice: 550, sellPrice: 275, unlockLevel: 13 },
-
   { name: "Tinh hạch thần vực", rarity: "Bán Thần", buyPrice: 900, sellPrice: 450, unlockLevel: 18 },
   { name: "Mảnh linh hồn cổ", rarity: "Bán Thần", buyPrice: 1000, sellPrice: 500, unlockLevel: 20 },
   { name: "Tinh thể lượng tử", rarity: "Huyền Thoại", buyPrice: 1100, sellPrice: 550, unlockLevel: 22 },
@@ -106,26 +98,20 @@ const craftingRecipes = [
   { name: "Kiếm Đồng", rarity: "Thường", damage: 8, successRate: 100, materials: { "Mảnh đồng": 5 } },
   { name: "Khiên Gỗ", rarity: "Thường", damage: 6, successRate: 100, materials: { "Gỗ cứng": 4, "Mảnh đồng": 2 } },
   { name: "Dao Đá", rarity: "Thường", damage: 7, successRate: 100, materials: { "Đá thô": 5, "Gỗ cứng": 2 } },
-
   { name: "Kiếm Điện", rarity: "Hiếm", damage: 15, successRate: 100, materials: { "Kiếm Đồng": 1, "Tinh thạch nhỏ": 2, "Mảnh điện tích": 2 } },
   { name: "Trượng Hỏa", rarity: "Hiếm", damage: 18, successRate: 100, materials: { "Gỗ cứng": 5, "Lông chim lửa": 3, "Bụi hỏa khí": 5 } },
   { name: "Cung Băng", rarity: "Hiếm", damage: 17, successRate: 100, materials: { "Gỗ cứng": 6, "Tinh hoa băng": 3, "Tinh thạch nhỏ": 2 } },
-
   { name: "Búa Chấn Động", rarity: "Quý", damage: 25, successRate: 100, materials: { "Mảnh đồng": 10, "Đá thô": 8, "Lõi năng lượng": 1 } },
   { name: "Song Kiếm Lôi", rarity: "Quý", damage: 28, successRate: 100, materials: { "Kiếm Điện": 1, "Tinh thạch lôi điện": 2, "Mảnh điện tích": 5 } },
   { name: "Pháp Trượng Băng", rarity: "Quý", damage: 27, successRate: 100, materials: { "Cung Băng": 1, "Hạch băng": 2, "Tinh hoa băng": 5 } },
-
   { name: "Lôi Thần Kiếm", rarity: "Sử Thi", damage: 40, successRate: 75, materials: { "Song Kiếm Lôi": 1, "Tinh thạch lôi điện": 3, "Lõi năng lượng": 2 } },
   { name: "Viêm Long Trượng", rarity: "Sử Thi", damage: 42, successRate: 75, materials: { "Trượng Hỏa": 1, "Hỏa ngọc": 3, "Huyết tinh long tộc": 1 } },
   { name: "Cung Nguyệt Quang", rarity: "Sử Thi", damage: 41, successRate: 75, materials: { "Pháp Trượng Băng": 1, "Tinh tú cổ đại": 1, "Hạch băng": 3 } },
-
   { name: "Thái Dương Kiếm", rarity: "Bán Thần", damage: 60, successRate: 60, materials: { "Lôi Thần Kiếm": 1, "Mảnh thái dương": 3, "Tinh hạch thần vực": 1 } },
   { name: "Trượng Long Diễm", rarity: "Bán Thần", damage: 62, successRate: 60, materials: { "Viêm Long Trượng": 1, "Huyết tinh long tộc": 2, "Lõi năng lượng": 3 } },
-
   { name: "Nhật Diệu Thần Kiếm", rarity: "Huyền Thoại", damage: 85, successRate: 35, materials: { "Thái Dương Kiếm": 1, "Mảnh thái dương": 5, "Tinh thể lượng tử": 1 } },
   { name: "Trượng Hư Không", rarity: "Huyền Thoại", damage: 90, successRate: 35, materials: { "Trượng Long Diễm": 1, "Lõi hư không": 3, "Mảnh linh hồn cổ": 1 } },
   { name: "Thần Cung Tinh Tú", rarity: "Huyền Thoại", damage: 88, successRate: 35, materials: { "Cung Nguyệt Quang": 1, "Tinh tú cổ đại": 3, "Tinh thể lượng tử": 1 } },
-
   { name: "Thần Khí Nguyên Tố", rarity: "Thần Thoại", damage: 120, successRate: 15, materials: { "Nhật Diệu Thần Kiếm": 1, "Trượng Hư Không": 1, "Thần Cung Tinh Tú": 1, "Trái tim nguyên tố": 1 } }
 ];
 
@@ -152,8 +138,7 @@ async function loadWorldMap() {
 async function loadSubMap(regionNode) {
   const response = await fetch(`data/submaps/${regionNode.subMap}`);
   currentMapNodes = await response.json();
-console.log("SUBMAP LOADED");
-console.log(currentMapNodes);
+
   currentRegion = regionNode;
   currentNode = null;
   currentQuestions = [];
@@ -198,12 +183,7 @@ function renderMap(titleText) {
 
     nodeDiv.style.left = node.x + "px";
     nodeDiv.style.top = node.y + "px";
-
-    if (node.type === "boss") {
-      nodeDiv.innerText = `👾 ${node.name}`;
-    } else {
-      nodeDiv.innerText = node.name;
-    }
+    nodeDiv.innerText = node.type === "boss" ? `👾 ${node.name}` : node.name;
 
     nodeDiv.onclick = async function () {
       if (!isUnlocked(node)) {
@@ -768,6 +748,7 @@ function startBossBattle(node) {
 
     rewardChest: node.rewardChest || node.chestType || "gold",
     rewardExp: node.rewardExp || 50,
+    rareDrops: node.rareDrops || [],
 
     stunned: currentKnowledgeBuff ? currentKnowledgeBuff.stunFirstTurn : false
   };
@@ -800,6 +781,7 @@ function renderBossBattle() {
     `Boss Damage: ${currentBoss.damage}\n` +
     `Lượt boss: ${bossTurnCount}\n` +
     `Kỹ năng boss: ${getBossAbilityText(currentBoss.type)}\n` +
+    `Rare Drop: ${getRareDropText(currentBoss.rareDrops)}\n` +
     `Vũ khí đang dùng: ${getEquippedWeaponText()}\n` +
     `Sát thương cơ bản: ${getEquippedDamage()}\n` +
     `Buff kiến thức: ${getKnowledgeBuffText()}\n` +
@@ -840,6 +822,16 @@ function getBossAbilityText(type) {
   if (type === "gravity") return "Mỗi lượt tăng 2 damage.";
   if (type === "pressure") return "Giảm 30% sát thương nhận vào.";
   return "Không có kỹ năng đặc biệt.";
+}
+
+function getRareDropText(rareDrops) {
+  if (!rareDrops || rareDrops.length === 0) {
+    return "Không có";
+  }
+
+  return rareDrops
+    .map(drop => `${drop.item} (${drop.chance}%)`)
+    .join(", ");
 }
 
 function getKnowledgeBuffText() {
@@ -996,7 +988,14 @@ function winBossBattle() {
   levelExp += currentBoss.rewardExp;
   checkLevelUp();
 
+  const rareDropRewards = rollRareDrops(currentBoss.rareDrops);
+
+  rareDropRewards.forEach(drop => {
+    addItemToInventory(drop.item, drop.quantity);
+  });
+
   saveGame();
+  updateInventory();
 
   document.getElementById("progress").innerText = "Chiến thắng";
   document.getElementById("question").innerText =
@@ -1005,8 +1004,19 @@ function winBossBattle() {
   document.getElementById("answers").innerHTML = "";
   document.getElementById("nextBtn").style.display = "none";
 
-  document.getElementById("result").innerText =
+  let resultText =
     `Bạn nhận ${currentBoss.rewardExp} EXP và một ${getChestName(currentBoss.rewardChest)}!`;
+
+  if (rareDropRewards.length > 0) {
+    resultText += "\n\n✨ Rare Drop nhận được:";
+    rareDropRewards.forEach(drop => {
+      resultText += `\n${drop.item} x${drop.quantity}`;
+    });
+  } else {
+    resultText += "\n\nKhông có Rare Drop lần này.";
+  }
+
+  document.getElementById("result").innerText = resultText;
 
   const bossChest = currentBoss.rewardChest;
 
@@ -1024,6 +1034,27 @@ function winBossBattle() {
   document.getElementById("answers").appendChild(openBossChestButton);
 
   updateUI();
+}
+
+function rollRareDrops(rareDrops) {
+  const rewards = [];
+
+  if (!rareDrops || rareDrops.length === 0) {
+    return rewards;
+  }
+
+  rareDrops.forEach(drop => {
+    const roll = Math.random() * 100;
+
+    if (roll < drop.chance) {
+      rewards.push({
+        item: drop.item,
+        quantity: drop.quantity || 1
+      });
+    }
+  });
+
+  return rewards;
 }
 
 function healPlayer() {
