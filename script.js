@@ -326,7 +326,19 @@ function loadQuestion() {
 
   removeBuyRetryButton();
 
-  const question = currentQuestions[currentQuestionIndex];
+  const question =
+  JSON.parse(JSON.stringify(currentQuestions[currentQuestionIndex]));
+
+const correctAnswer = question.answers[question.correct];
+
+for (let i = question.answers.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+
+  [question.answers[i], question.answers[j]] =
+  [question.answers[j], question.answers[i]];
+}
+
+question.correct = question.answers.indexOf(correctAnswer);
 
   document.getElementById("progress").innerText =
     `Câu ${currentQuestionIndex + 1}/${currentQuestions.length} - ${currentNode.name}`;
