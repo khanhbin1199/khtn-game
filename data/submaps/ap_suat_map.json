@@ -9,9 +9,7 @@
     "unlockAfter": null,
     "difficulty": "easy",
     "chestType": "wood",
-    "rewardExp": 10,
-    "recommendedLevel": 1,
-    "theme": "pressure"
+    "rewardExp": 10
   },
   {
     "id": "apsuat_2",
@@ -23,9 +21,7 @@
     "unlockAfter": "apsuat_1",
     "difficulty": "normal",
     "chestType": "iron",
-    "rewardExp": 20,
-    "recommendedLevel": 2,
-    "theme": "pressure"
+    "rewardExp": 20
   },
   {
     "id": "apsuat_3",
@@ -37,9 +33,7 @@
     "unlockAfter": "apsuat_2",
     "difficulty": "hard",
     "chestType": "silver",
-    "rewardExp": 30,
-    "recommendedLevel": 3,
-    "theme": "pressure"
+    "rewardExp": 30
   },
   {
     "id": "apsuat_boss",
@@ -54,9 +48,16 @@
     "bossDamage": 20,
     "rewardChest": "legend",
     "rewardExp": 100,
-    "recommendedLevel": 5,
-    "knowledgeQuiz": true,
-    "knowledgeQuestionFile": "apsuat_chatlong.json",
-    "knowledgeQuestionCount": 3
+
+    "rareDrops": [
+      {
+        "item": "Tinh Thể Chân Không",
+        "chance": 30
+      },
+      {
+        "item": "Lõi Áp Suất Cổ Đại",
+        "chance": 10
+      }
+    ]
   }
 ]
