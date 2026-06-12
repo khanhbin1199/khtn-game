@@ -44,7 +44,7 @@
   {
     "id": "dien_boss",
     "name": "Boss Điện Học",
-    "x": 1320,
+    "x": 1220,
     "y": 360,
     "type": "boss",
     "bossType": "electric",
