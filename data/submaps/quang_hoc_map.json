@@ -9,9 +9,7 @@
     "unlockAfter": null,
     "difficulty": "easy",
     "chestType": "wood",
-    "rewardExp": 10,
-    "recommendedLevel": 1,
-    "theme": "light"
+    "rewardExp": 10
   },
   {
     "id": "quang_2",
@@ -23,9 +21,7 @@
     "unlockAfter": "quang_1",
     "difficulty": "normal",
     "chestType": "iron",
-    "rewardExp": 20,
-    "recommendedLevel": 2,
-    "theme": "light"
+    "rewardExp": 20
   },
   {
     "id": "quang_3",
@@ -37,9 +33,7 @@
     "unlockAfter": "quang_2",
     "difficulty": "hard",
     "chestType": "silver",
-    "rewardExp": 30,
-    "recommendedLevel": 3,
-    "theme": "light"
+    "rewardExp": 30
   },
   {
     "id": "quang_boss",
@@ -54,9 +48,16 @@
     "bossDamage": 12,
     "rewardChest": "gold",
     "rewardExp": 80,
-    "recommendedLevel": 3,
-    "knowledgeQuiz": true,
-    "knowledgeQuestionFile": "quang_phan_xa_anh_sang.json",
-    "knowledgeQuestionCount": 3
+
+    "rareDrops": [
+      {
+        "item": "Mảnh Photon",
+        "chance": 30
+      },
+      {
+        "item": "Tinh Thể Ánh Sáng",
+        "chance": 10
+      }
+    ]
   }
 ]
