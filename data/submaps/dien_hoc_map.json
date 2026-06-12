@@ -40,5 +40,23 @@
     "rewardExp": 30,
     "recommendedLevel": 3,
     "theme": "electric"
+  },
+  {
+    "id": "dien_boss",
+    "name": "Boss Điện Học",
+    "x": 1320,
+    "y": 360,
+    "type": "boss",
+    "bossType": "electric",
+    "unlockAfter": "dien_3",
+    "bossName": "Lôi Điện Khổng Lồ",
+    "bossHp": 250,
+    "bossDamage": 15,
+    "rewardChest": "gold",
+    "rewardExp": 90,
+    "recommendedLevel": 4,
+    "knowledgeQuiz": true,
+    "knowledgeQuestionFile": "dien_dong_dien.json",
+    "knowledgeQuestionCount": 3
   }
 ]
