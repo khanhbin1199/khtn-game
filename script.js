@@ -326,46 +326,49 @@ function loadQuestion() {
 
   removeBuyRetryButton();
 
-  const question =
-  JSON.parse(JSON.stringify(currentQuestions[currentQuestionIndex]));
+  const originalQuestion = currentQuestions[currentQuestionIndex];
 
-const correctAnswer = question.answers[question.correct];
+  const correctAnswer = originalQuestion.answers[originalQuestion.correct];
 
-for (let i = question.answers.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * (i + 1));
+  const shuffledAnswers = [...originalQuestion.answers];
 
-  [question.answers[i], question.answers[j]] =
-  [question.answers[j], question.answers[i]];
-}
+  for (let i = shuffledAnswers.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledAnswers[i], shuffledAnswers[j]] = [shuffledAnswers[j], shuffledAnswers[i]];
+  }
 
-question.correct = question.answers.indexOf(correctAnswer);
-currentDisplayedQuestion = question;
+  currentDisplayedQuestion = {
+    text: originalQuestion.text,
+    answers: shuffledAnswers,
+    correctAnswer: correctAnswer
+  };
+
   document.getElementById("progress").innerText =
     `Câu ${currentQuestionIndex + 1}/${currentQuestions.length} - ${currentNode.name}`;
 
-  document.getElementById("question").innerText = question.text;
+  document.getElementById("question").innerText = currentDisplayedQuestion.text;
   document.getElementById("result").innerText = "";
   document.getElementById("nextBtn").style.display = "none";
 
   const answersDiv = document.getElementById("answers");
   answersDiv.innerHTML = "";
 
- question.answers.forEach((answer, index) => {
-  const button = document.createElement("button");
-  button.innerText = answer;
+  currentDisplayedQuestion.answers.forEach(answer => {
+    const button = document.createElement("button");
+    button.innerText = answer;
 
-  button.onclick = function () {
-    answerQuestion(answer === correctAnswer);
-  };
+    button.onclick = function () {
+      answerQuestion(answer);
+    };
 
-  answersDiv.appendChild(button);
-});
+    answersDiv.appendChild(button);
+  });
 
   updateUI();
   updateEquippedWeaponUI();
 }
 
-function answerQuestion(isCorrect) {
+function answerQuestion(selectedAnswer) {
   if (attemptsLeft <= 0) {
     document.getElementById("result").innerText = "Bạn đã hết lượt trả lời.";
     showBuyRetryButton();
@@ -668,7 +671,7 @@ function renderKnowledgeQuestion() {
 function answerKnowledgeQuestion(index) {
   const question = knowledgeQuestions[knowledgeQuestionIndex];
 
-  if (index === question.correct) {
+  if (selectedAnswer === question.correctAnswer) {
     knowledgeCorrectCount++;
     document.getElementById("result").innerText = "Đúng! Nhận điểm kiến thức.";
   } else {
