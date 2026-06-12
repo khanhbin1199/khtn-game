@@ -1,3 +1,6 @@
+// Bản script.js đầy đủ: Map + Submap + Quiz + EXP/Level/HP + Shop + Crafting
+// + Equipment + Boss + Knowledge Buff + Boss riêng từng khu
+
 let exp = Number(localStorage.getItem("exp")) || 0;
 let level = Number(localStorage.getItem("level")) || 1;
 let levelExp = Number(localStorage.getItem("levelExp")) || 0;
@@ -29,6 +32,7 @@ let currentNode = null;
 let currentQuestions = [];
 
 let currentBoss = null;
+let bossTurnCount = 0;
 
 let knowledgeQuestions = [];
 let knowledgeQuestionIndex = 0;
@@ -137,6 +141,7 @@ async function loadWorldMap() {
   currentQuestions = [];
   currentBoss = null;
   currentKnowledgeBuff = null;
+  bossTurnCount = 0;
   playerPosition = { x: 25, y: 250 };
 
   renderMap("Bản đồ thế giới");
@@ -153,6 +158,7 @@ async function loadSubMap(regionNode) {
   currentQuestions = [];
   currentBoss = null;
   currentKnowledgeBuff = null;
+  bossTurnCount = 0;
   playerPosition = { x: 25, y: 250 };
 
   renderMap(`Khu vực: ${regionNode.name}`);
@@ -748,14 +754,20 @@ function applyKnowledgeBuff() {
 function startBossBattle(node) {
   const bossMaxHp = node.bossHp || 100;
 
+  bossTurnCount = 0;
+
   currentBoss = {
     id: node.id,
     name: node.bossName || node.name || "Boss",
+    type: node.bossType || "normal",
+
     hp: bossMaxHp,
     maxHp: bossMaxHp,
     damage: node.bossDamage || 10,
+
     rewardChest: node.rewardChest || node.chestType || "gold",
     rewardExp: node.rewardExp || 50,
+
     stunned: currentKnowledgeBuff ? currentKnowledgeBuff.stunFirstTurn : false
   };
 
@@ -782,8 +794,11 @@ function renderBossBattle() {
   bossInfo.style.background = "#fff1f1";
 
   bossInfo.innerText =
+    `Boss hệ: ${getBossTypeName(currentBoss.type)}\n` +
     `Boss HP: ${currentBoss.hp}/${currentBoss.maxHp}\n` +
     `Boss Damage: ${currentBoss.damage}\n` +
+    `Lượt boss: ${bossTurnCount}\n` +
+    `Kỹ năng boss: ${getBossAbilityText(currentBoss.type)}\n` +
     `Vũ khí đang dùng: ${getEquippedWeaponText()}\n` +
     `Sát thương cơ bản: ${getEquippedDamage()}\n` +
     `Buff kiến thức: ${getKnowledgeBuffText()}\n` +
@@ -801,12 +816,29 @@ function renderBossBattle() {
   backButton.onclick = function () {
     currentBoss = null;
     currentKnowledgeBuff = null;
+    bossTurnCount = 0;
     renderMap(currentRegion ? `Khu vực: ${currentRegion.name}` : "Bản đồ thế giới");
   };
   answersDiv.appendChild(backButton);
 
   updateUI();
   updateEquippedWeaponUI();
+}
+
+function getBossTypeName(type) {
+  if (type === "light") return "Quang học";
+  if (type === "electric") return "Điện học";
+  if (type === "gravity") return "Lực học";
+  if (type === "pressure") return "Áp suất";
+  return "Thường";
+}
+
+function getBossAbilityText(type) {
+  if (type === "light") return "Mỗi 3 lượt hồi 20 HP.";
+  if (type === "electric") return "20% phản lại 50% sát thương bạn gây ra.";
+  if (type === "gravity") return "Mỗi lượt tăng 2 damage.";
+  if (type === "pressure") return "Giảm 30% sát thương nhận vào.";
+  return "Không có kỹ năng đặc biệt.";
 }
 
 function getKnowledgeBuffText() {
@@ -822,6 +854,16 @@ function getBuffedDamage() {
   return Math.max(1, Math.floor(baseDamage * currentKnowledgeBuff.damageMultiplier));
 }
 
+function applyBossDamageReduction(damage) {
+  if (!currentBoss) return damage;
+
+  if (currentBoss.type === "pressure") {
+    return Math.max(1, Math.floor(damage * 0.7));
+  }
+
+  return damage;
+}
+
 function getReducedBossDamage() {
   let bossDamage = currentBoss.damage;
 
@@ -833,6 +875,47 @@ function getReducedBossDamage() {
   return Math.max(0, bossDamage);
 }
 
+function runBossSpecialAbilityAfterPlayerAttack(playerDamageDealt) {
+  if (!currentBoss) return "";
+
+  let message = "";
+
+  if (currentBoss.type === "light") {
+    if (bossTurnCount % 3 === 0) {
+      currentBoss.hp += 20;
+
+      if (currentBoss.hp > currentBoss.maxHp) {
+        currentBoss.hp = currentBoss.maxHp;
+      }
+
+      message += "\n✨ Tinh Linh Quang Học hấp thu ánh sáng và hồi 20 HP!";
+    }
+  }
+
+  if (currentBoss.type === "electric") {
+    const reflected = Math.random() < 0.2;
+
+    if (reflected) {
+      const reflectDamage = Math.max(1, Math.floor(playerDamageDealt * 0.5));
+
+      playerHp -= reflectDamage;
+
+      if (playerHp < 0) {
+        playerHp = 0;
+      }
+
+      message += `\n⚡ Lôi Điện Khổng Lồ phản lại ${reflectDamage} sát thương!`;
+    }
+  }
+
+  if (currentBoss.type === "gravity") {
+    currentBoss.damage += 2;
+    message += "\n🌑 Kỵ Sĩ Trọng Lực gia tăng áp lực, boss +2 damage!";
+  }
+
+  return message;
+}
+
 function playerAttackBoss() {
   if (!currentBoss) return;
 
@@ -842,13 +925,30 @@ function playerAttackBoss() {
     return;
   }
 
-  const damage = getBuffedDamage();
+  bossTurnCount++;
+
+  let damage = getBuffedDamage();
+  damage = applyBossDamageReduction(damage);
 
   currentBoss.hp -= damage;
+
+  let resultMessage = `Bạn gây ${damage} sát thương.`;
 
   if (currentBoss.hp <= 0) {
     currentBoss.hp = 0;
     winBossBattle();
+    return;
+  }
+
+  resultMessage += runBossSpecialAbilityAfterPlayerAttack(damage);
+
+  if (playerHp <= 0) {
+    saveGame();
+
+    document.getElementById("result").innerText =
+      resultMessage + "\nBạn đã bị đánh bại bởi kỹ năng phản sát thương.";
+
+    renderBossBattle();
     return;
   }
 
@@ -857,7 +957,7 @@ function playerAttackBoss() {
     saveGame();
 
     document.getElementById("result").innerText =
-      `Bạn gây ${damage} sát thương.\nBoss bị choáng nên không phản đòn.`;
+      resultMessage + "\nBoss bị choáng nên không phản đòn.";
 
     renderBossBattle();
     return;
@@ -872,7 +972,7 @@ function playerAttackBoss() {
     saveGame();
 
     document.getElementById("result").innerText =
-      `Bạn gây ${damage} sát thương.\n${currentBoss.name} phản đòn ${bossDamage} sát thương.\nBạn đã thua trận.`;
+      `${resultMessage}\n${currentBoss.name} phản đòn ${bossDamage} sát thương.\nBạn đã thua trận.`;
 
     renderBossBattle();
     return;
@@ -881,7 +981,7 @@ function playerAttackBoss() {
   saveGame();
 
   document.getElementById("result").innerText =
-    `Bạn gây ${damage} sát thương.\n${currentBoss.name} phản đòn ${bossDamage} sát thương.`;
+    `${resultMessage}\n${currentBoss.name} phản đòn ${bossDamage} sát thương.`;
 
   renderBossBattle();
 }
@@ -917,6 +1017,7 @@ function winBossBattle() {
     openChest(bossChest);
     currentBoss = null;
     currentKnowledgeBuff = null;
+    bossTurnCount = 0;
   };
 
   document.getElementById("answers").appendChild(openBossChestButton);
