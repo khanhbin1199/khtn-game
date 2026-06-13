@@ -118,7 +118,7 @@ const craftingRecipes = [
    name: "Kiếm Photon",
     rarity: "Huyền Thoại",
     damage: 95,
-    successRate: 45,
+    successRate: 30,
     materials: {
       "Cung Nguyệt Quang": 1,
       "Mảnh Photon": 5,
@@ -130,7 +130,7 @@ const craftingRecipes = [
     name: "Lôi Kiếm Cổ Đại",
     rarity: "Huyền Thoại",
     damage: 98,
-    successRate: 45,
+    successRate: 30,
     materials: {
       "Lôi Thần Kiếm": 1,
       "Tinh Thạch Lôi Điện": 5,
@@ -142,7 +142,7 @@ const craftingRecipes = [
     name: "Chùy Trọng Lực",
     rarity: "Huyền Thoại",
     damage: 100,
-    successRate: 45,
+    successRate: 30,
     materials: {
       "Búa Chấn Động": 1,
       "Lõi Trọng Lực": 5,
@@ -154,7 +154,7 @@ const craftingRecipes = [
     name: "Trượng Chân Không",
     rarity: "Huyền Thoại",
     damage: 102,
-    successRate: 45,
+    successRate: 30,
     materials: {
       "Trượng Hư Không": 1,
       "Tinh Thể Chân Không": 5,
@@ -166,7 +166,7 @@ const craftingRecipes = [
   name: "⚡ Thần Kiếm Lôi Đế",
   rarity: "Thần Thoại",
   damage: 140,
-  successRate: 25,
+  successRate: 10,
   materials: {
     "Lôi Kiếm Cổ Đại": 1,
     "Lõi Sét Cổ Đại": 10,
@@ -177,7 +177,7 @@ const craftingRecipes = [
   name: "☀️ Thiên Cung Photon",
   rarity: "Thần Thoại",
   damage: 140,
-  successRate: 25,
+  successRate: 10,
   materials: {
     "Kiếm Photon": 1,
     "Mảnh Photon": 10,
@@ -188,7 +188,7 @@ const craftingRecipes = [
   name: "🌌 Chùy Thiên Hà",
   rarity: "Thần Thoại",
   damage: 145,
-  successRate: 25,
+  successRate: 10,
   materials: {
     "Chùy Trọng Lực": 1,
     "Lõi Trọng Lực": 10,
@@ -199,7 +199,7 @@ const craftingRecipes = [
   name: "🌀 Trượng Hư Vô",
   rarity: "Thần Thoại",
   damage: 150,
-  successRate: 25,
+  successRate: 10,
   materials: {
     "Trượng Chân Không": 1,
     "Tinh Thể Chân Không": 10,
