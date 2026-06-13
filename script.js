@@ -672,7 +672,7 @@ function renderKnowledgeQuestion() {
 function answerKnowledgeQuestion(index) {
   const question = knowledgeQuestions[knowledgeQuestionIndex];
 
-  if (index === question.correctAnswer) {
+  if (index === question.correct) {
     knowledgeCorrectCount++;
     document.getElementById("result").innerText = "Đúng! Nhận điểm kiến thức.";
   } else {
