@@ -113,7 +113,99 @@ const craftingRecipes = [
   { name: "Nhật Diệu Thần Kiếm", rarity: "Huyền Thoại", damage: 85, successRate: 35, materials: { "Thái Dương Kiếm": 1, "Mảnh thái dương": 5, "Tinh thể lượng tử": 1 } },
   { name: "Trượng Hư Không", rarity: "Huyền Thoại", damage: 90, successRate: 35, materials: { "Trượng Long Diễm": 1, "Lõi hư không": 3, "Mảnh linh hồn cổ": 1 } },
   { name: "Thần Cung Tinh Tú", rarity: "Huyền Thoại", damage: 88, successRate: 35, materials: { "Cung Nguyệt Quang": 1, "Tinh tú cổ đại": 3, "Tinh thể lượng tử": 1 } },
-  { name: "Thần Khí Nguyên Tố", rarity: "Thần Thoại", damage: 120, successRate: 15, materials: { "Nhật Diệu Thần Kiếm": 1, "Trượng Hư Không": 1, "Thần Cung Tinh Tú": 1, "Trái tim nguyên tố": 1 } }
+  { name: "Thần Khí Nguyên Tố", rarity: "Thần Thoại", damage: 120, successRate: 15, materials: { "Nhật Diệu Thần Kiếm": 1, "Trượng Hư Không": 1, "Thần Cung Tinh Tú": 1, "Trái tim nguyên tố": 1 } },
+  {
+   name: "Kiếm Photon",
+    rarity: "Huyền Thoại",
+    damage: 95,
+    successRate: 45,
+    materials: {
+      "Cung Nguyệt Quang": 1,
+      "Mảnh Photon": 5,
+      "Tinh Thể Ánh Sáng": 2,
+      "Tinh tú cổ đại": 2
+    }
+  },
+  {
+    name: "Lôi Kiếm Cổ Đại",
+    rarity: "Huyền Thoại",
+    damage: 98,
+    successRate: 45,
+    materials: {
+      "Lôi Thần Kiếm": 1,
+      "Tinh Thạch Lôi Điện": 5,
+      "Lõi Sét Cổ Đại": 2,
+      "Lõi năng lượng": 2
+    }
+  },
+  {
+    name: "Chùy Trọng Lực",
+    rarity: "Huyền Thoại",
+    damage: 100,
+    successRate: 45,
+    materials: {
+      "Búa Chấn Động": 1,
+      "Lõi Trọng Lực": 5,
+      "Mảnh Thiên Thạch": 2,
+      "Lõi năng lượng": 2
+    }
+  },
+  {
+    name: "Trượng Chân Không",
+    rarity: "Huyền Thoại",
+    damage: 102,
+    successRate: 45,
+    materials: {
+      "Trượng Hư Không": 1,
+      "Tinh Thể Chân Không": 5,
+      "Lõi Áp Suất Cổ Đại": 2,
+      "Lõi hư không": 2
+    }
+  }, 
+  {
+  name: "⚡ Thần Kiếm Lôi Đế",
+  rarity: "Thần Thoại",
+  damage: 140,
+  successRate: 25,
+  materials: {
+    "Lôi Kiếm Cổ Đại": 1,
+    "Lõi Sét Cổ Đại": 10,
+    "Tinh Thạch Lôi Điện": 20
+  }
+  },
+  {
+  name: "☀️ Thiên Cung Photon",
+  rarity: "Thần Thoại",
+  damage: 140,
+  successRate: 25,
+  materials: {
+    "Kiếm Photon": 1,
+    "Mảnh Photon": 10,
+    "Tinh Thể Ánh Sáng": 20
+  }
+  },
+  {
+  name: "🌌 Chùy Thiên Hà",
+  rarity: "Thần Thoại",
+  damage: 145,
+  successRate: 25,
+  materials: {
+    "Chùy Trọng Lực": 1,
+    "Lõi Trọng Lực": 10,
+    "Mảnh Thiên Thạch": 20
+  }
+  },
+  {
+  name: "🌀 Trượng Hư Vô",
+  rarity: "Thần Thoại",
+  damage: 150,
+  successRate: 25,
+  materials: {
+    "Trượng Chân Không": 1,
+    "Tinh Thể Chân Không": 10,
+    "Lõi Áp Suất Cổ Đại": 10
+  }
+}
 ];
 
 loadWorldMap();
