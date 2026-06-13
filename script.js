@@ -1007,8 +1007,12 @@ function winBossBattle() {
     completedNodes.push(currentNode.id);
   }
 
-  exp += currentBoss.rewardExp;
-  levelExp += currentBoss.rewardExp;
+  const finalExp = currentBoss.isElite
+    ? currentBoss.rewardExp * 3
+    : currentBoss.rewardExp;
+
+    exp += finalExp;
+    levelExp += finalExp;
   checkLevelUp();
 
   const rareDropRewards = rollRareDrops(currentBoss.rareDrops);
@@ -1028,7 +1032,9 @@ function winBossBattle() {
   document.getElementById("nextBtn").style.display = "none";
 
   let resultText =
-    `Bạn nhận ${currentBoss.rewardExp} EXP và một ${getChestName(currentBoss.rewardChest)}!`;
+    currentBoss.isElite
+        ? `👑 ELITE BOSS! Bạn nhận ${finalExp} EXP và một ${getChestName(currentBoss.rewardChest)}!`
+        : `Bạn nhận ${finalExp} EXP và một ${getChestName(currentBoss.rewardChest)}!`;
 
   if (rareDropRewards.length > 0) {
     resultText += "\n\n✨ Rare Drop nhận được:";
