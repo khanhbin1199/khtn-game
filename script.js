@@ -379,7 +379,7 @@ function answerQuestion(selectedAnswer) {
 
   attemptsLeft--;
 
-  if (isCorrect) {
+  if (selectedAnswer === question.correctAnswer) {
     if (!answeredCurrentQuestion) {
       exp += 10;
       levelExp += 10;
