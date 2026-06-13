@@ -758,6 +758,7 @@ function startBossBattle(node) {
     id: node.id,
     name: node.bossName || node.name || "Boss",
     type: node.bossType || "normal",
+    isElite: isEliteBoss,
 
     hp: isEliteBoss ? bossMaxHp * 2 : bossMaxHp,
     maxHp: isEliteBoss ? bossMaxHp * 2 : bossMaxHp,
@@ -779,7 +780,9 @@ function startBossBattle(node) {
 function renderBossBattle() {
   document.getElementById("progress").innerText = "Boss Battle";
   document.getElementById("question").innerText =
-    `👾 ${currentBoss.name}`;
+   currentBoss.isElite
+    ? `👑 ELITE BOSS\n👾 ${currentBoss.name}`
+    : `👾 ${currentBoss.name}`;
 
   document.getElementById("nextBtn").style.display = "none";
 
@@ -795,7 +798,8 @@ function renderBossBattle() {
   bossInfo.style.background = "#fff1f1";
 
   bossInfo.innerText =
-    `Boss hệ: ${getBossTypeName(currentBoss.type)}\n` +
+   `${currentBoss.isElite ? "👑 Trạng thái: ELITE\n" : ""}` +
+   `Boss hệ: ${getBossTypeName(currentBoss.type)}\n` +
     `Boss HP: ${currentBoss.hp}/${currentBoss.maxHp}\n` +
     `Boss Damage: ${currentBoss.damage}\n` +
     `Lượt boss: ${bossTurnCount}\n` +
