@@ -749,7 +749,7 @@ function applyKnowledgeBuff() {
 }
 
 function startBossBattle(node) {
-  isEliteBoss = true;
+  isEliteBoss = Math.random() < 0.10;
   const bossMaxHp = node.bossHp || 100;
 
   bossTurnCount = 0;
