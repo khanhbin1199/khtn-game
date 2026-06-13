@@ -28,6 +28,7 @@ let currentNode = null;
 let currentQuestions = [];
 let currentDisplayedQuestion = null;
 let currentBoss = null;
+let isEliteBoss = false;
 let bossTurnCount = 0;
 
 let knowledgeQuestions = [];
@@ -748,6 +749,7 @@ function applyKnowledgeBuff() {
 }
 
 function startBossBattle(node) {
+  isEliteBoss = Math.random() < 0.10;
   const bossMaxHp = node.bossHp || 100;
 
   bossTurnCount = 0;
@@ -757,9 +759,11 @@ function startBossBattle(node) {
     name: node.bossName || node.name || "Boss",
     type: node.bossType || "normal",
 
-    hp: bossMaxHp,
-    maxHp: bossMaxHp,
-    damage: node.bossDamage || 10,
+    hp: isEliteBoss ? bossMaxHp * 2 : bossMaxHp,
+    maxHp: isEliteBoss ? bossMaxHp * 2 : bossMaxHp,
+    damage: isEliteBoss
+    ? (node.bossDamage || 10) * 2
+    : (node.bossDamage || 10),
 
     rewardChest: node.rewardChest || node.chestType || "gold",
     rewardExp: node.rewardExp || 50,
