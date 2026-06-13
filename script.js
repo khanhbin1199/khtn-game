@@ -655,15 +655,15 @@ function renderKnowledgeQuestion() {
   answersDiv.innerHTML = "";
 
   question.answers.forEach((answer, index) => {
-    const button = document.createElement("button");
-    button.innerText = answer;
+  const button = document.createElement("button");
+  button.innerText = answer;
 
-    button.onclick = function () {
-      answerKnowledgeQuestion(index);
-    };
+  button.onclick = function () {
+    answerKnowledgeQuestion(index);
+  };
 
-    answersDiv.appendChild(button);
-  });
+  answersDiv.appendChild(button);
+});
 
   updateUI();
   updateEquippedWeaponUI();
@@ -672,7 +672,7 @@ function renderKnowledgeQuestion() {
 function answerKnowledgeQuestion(index) {
   const question = knowledgeQuestions[knowledgeQuestionIndex];
 
-  if (selectedAnswer === question.correctAnswer) {
+  if (index === question.correctAnswer) {
     knowledgeCorrectCount++;
     document.getElementById("result").innerText = "Đúng! Nhận điểm kiến thức.";
   } else {
